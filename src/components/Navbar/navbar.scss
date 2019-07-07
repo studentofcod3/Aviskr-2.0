@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap');
+
+$primary-text-color: #ddd;
+$text-color-light: #ddd;
+$Primary-background-color: #666;
+$Primary-background-color-dark: #333;
+$head-foot-background-color: #bbb;
+
+// Links
+a{
+  text-decoration: none !important;
+  color: $primary-text-color !important;
+
+  &:hover{
+    color: darken($primary-text-color, 40%) !important;
+  }
+}
+// Navbar
+#Navigation{
+  background: $head-foot-background-color;
+  height: 3rem;
+  padding: 0;
+  
+  .container{
+    padding: 0;
+    color: #999;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  
+
+    ul{
+      display: flex;
+      flex-direction: row;
+
+      li, span{
+        padding: 1rem;
+        padding-right: 0;
+
+      }
+    }
+  }
+  
+}
+
+// Navbar Modal
+.navbarModalBtn{
+  color: $primary-text-color;
+  border: none;
+  background: $head-foot-background-color;
+
+  &:hover{
+    color: #666;
+  }
+}
+
+// Modal Content
+// Grabbing the modal container - found classname using devtools
+.styles_modal__gNwvD{
+  padding: 0;
+  opacity: 0.6;
+}
+
+
+.modalContainer{
+  background: #444;
+  .modalContent{
+    padding: 0.4rem;
+    background: #555;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    .modalStory{
+      margin: 2rem;
+
+      img{
+        width: 8rem;
+      }
+      h4{
+        border-bottom: solid 3px $text-color-light;
+        padding-bottom: 0.4rem;
+        color: #eee;
+      }
+  
+      ul{
+        margin: 0 auto;
+        padding: 0;
+      }
+    }
+  } 
+}
+
+@media only screen and (max-width: 750px){
+// Navbar
+  #Navigation{
+    .container{
+      ul{
+        display: flex;
+        flex-direction: column;
+        margin-right: 100%;
+        
+        li, span{
+          padding: 1rem;
+
+        }
+      }
+    }
+  }
+  
+}

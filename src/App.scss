@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap');
+
+$primary-text-color: #999;
+$text-color-light: #ddd;
+$Primary-background-color: #666;
+$Primary-background-color-dark: #333;
+$head-foot-background-color: #bbb;
+
+
+
+.App{
+  background: $Primary-background-color;
+}
+
+// REUSABLE STYLING
+.pageContainer{
+  padding: auto;
+}
+
+.container{
+  margin: auto;
+  max-height: 100%;
+}
+
+.aviskr{
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 1.7rem;
+}
+
+ul{ list-style: none}
+
+
+
+// SINGULAR STYLING
+
+#Footer{
+  background: $head-foot-background-color;
+  text-align: left;
+  .container{
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+    padding-top: 1.4rem;
+    span{
+      font-size: 2.7rem;
+    }
+  
+    div{
+      padding-top: 1rem;
+      line-height: 1.6;
+      h3{
+        font-size: 1.3rem;
+      }
+      ul{
+        padding: 0;
+        li{
+          ul{
+            padding-left: 0.7rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+#home-tab{
+  padding: 0;
+
+  ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 0;
+    li{
+      margin-left: 1rem;
+      padding: 0.6rem 1.5rem;
+    }
+
+
+    .tab1{
+      background: $Primary-background-color-dark;
+      color: $text-color-light;
+
+    }
+
+    .tab2{
+      background: #ccc;
+      color: $primary-text-color;
+    }
+  }
+
+}
+
+#HomeTop{
+  padding: 0;
+  img{
+    height: 50vh;  
+  }
+}
+
+#FirstStory, #SecondStory{
+  height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-gap: 2rem;
+  padding: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  background: $Primary-background-color;
+  color: $text-color-light;
+  
+  .image-container{
+    display: flex;
+    justify-content: center;
+    img{
+      width: 70%;
+      height: auto;
+      overflow: hidden;
+    }
+  }
+}
+
+// Editing carousel layout
+#carousel-item{
+  height: 359px;
+  color: #ddd;
+  display: flex;
+  flex-direction: row;
+  background: $Primary-background-color-dark;
+  justify-content: center;
+  padding: 2rem 4rem;
+  margin: 0 0 1rem 0;
+
+  .container{
+    img{
+      padding: 2rem;
+      width: 100%;
+      height: 70%;
+      border-radius: 38px;
+    }
+
+    p{
+      margin: 0 2rem;
+    }
+  }
+
+}
+
+// Setting carousel indicators to circular
+.carousel-indicators{
+ li {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 100% !important;
+  }
+}
+  
+
+// About page
+#about{
+  margin: 2rem auto;
+  padding: 0 4rem;
+}
+
+// Contact page - Form styling
+#contact{
+  .container{
+    .text-fields{
+      .text-input, button,h3{
+        display: block;
+        margin: 2rem auto;
+        width: 70%;
+        border-radius: 4px;
+
+      }
+
+      textarea{
+        height: 5rem;
+      }
+      
+      button{
+        background: #555;
+        border: none;
+        height: 2.2rem;
+      }
+    }
+
+    h3{
+      font-weight: 200;
+    }
+  }
+}
+
+//Media Queries
+@media only screen and (max-width: 750px){
+  // Aviskr logo switch to right
+  #Navigation{
+    width: 100%;
+    .container{
+      display: block;
+      .aviskr{
+        position: absolute;
+        right: 1rem;
+        top: 0.2rem;     
+      }
+
+    }
+
+  }
+
+  #home-tab{  
+    ul{
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+      li{
+        margin: 0;
+        padding: 0.6rem 1rem;
+        width: 50%;
+        text-align: center;
+      }
+  
+      .tab1{
+        background: $Primary-background-color-dark;
+        color: $text-color-light;
+  
+      }
+  
+      .tab2{
+        background: #ccc;
+        color: $primary-text-color;
+      }
+    }
+  
+  }
+
+  // Stacking Carousel
+  #carousel-item{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+
+    .container{
+      margin: 0;
+      padding: 0;
+
+      img{
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+      }
+  
+      p{
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  #homeTop{
+    margin: 0;
+  }
+
+  // Stacking stories
+  #FirstStory, #SecondStory{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    border-bottom: 8px solid #444;
+    
+    
+    .image-container{
+      display: flex;
+      justify-content: center;
+      img{
+        margin-top: 0;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+      }
+    }
+
+    p{
+      padding: 0 1rem;
+    }
+  }
+  
+  // Switching image to come first in FirstStory
+  #FirstStory{
+    div{
+      order: 2;
+    }
+    .image-container{
+      order: 1;
+    }
+  }
+
+  // Footer
+  #Footer{
+    
+    text-align: center;
+    .container{
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      padding-top: 1.4rem;
+      span{
+        font-size: 2.7rem;
+      }
+
+      .quick-links{
+        display: none;
+      }
+    
+      div{
+        padding-top: 1rem;
+        line-height: 1.6;
+        h3{
+          font-size: 1.3rem;
+          
+        }
+        ul{
+          
+          li{
+            ul{
+              padding-left: 0.7rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
