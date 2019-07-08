@@ -1,94 +1,107 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Media from "react-media";
 
-// Couldn't use as sidenav is for premium users only
-import {
-  MDBSideNavCat,
-  MDBSideNavNav,
-  MDBSideNav,
-  MDBSideNavLink,
-  MDBContainer,
-  MDBIcon,
-  MDBBtn
-} from "mdbreact";
+import NavbarModal from "./NavbarModal";
 
-class SideNavPage extends Component {
-  state = {
-    sideNavLeft: false,
-    sideNavRight: false
+import "./navbar.scss";
+import "./hamburger-menu.scss";
+
+const Navbar = () => {
+  const [display, setDisplay] = useState("none");
+
+  const closeOverlay = () => {
+    document.getElementById("checkbox").checked = false;
   };
 
-  sidenavToggle = sidenavId => () => {
-    const sidenavNr = `sideNav${sidenavId}`;
-    this.setState({
-      [sidenavNr]: !this.state[sidenavNr]
-    });
+  const showStories = () => {
+    let showStoriesDisplay = document.querySelectorAll(".storieslist");
+
+    if (display === "none") {
+      setDisplay("block");
+      showStoriesDisplay.forEach(StoryDisplay => {
+        StoryDisplay.style.display = "block";
+      });
+    } else {
+      setDisplay("none");
+      showStoriesDisplay.forEach(StoryDisplay => {
+        StoryDisplay.style.display = "none";
+      });
+    }
   };
 
-  render() {
-    return (
-      <Router>
-        <MDBContainer>
-          <MDBBtn onClick={this.sidenavToggle("Left")}>
-            <MDBIcon size='lg' icon='bars' />
-          </MDBBtn>
-          <MDBSideNav
-            slim
-            fixed
-            mask='rgba-blue-strong'
-            triggerOpening={this.state.sideNavLeft}
-            breakWidth={1300}
-            className='sn-bg-1'
-          >
-            <li>
-              <div className='logo-wrapper sn-ad-avatar-wrapper'>
-                <a href='#!'>
-                  <img
-                    alt=''
-                    src='https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg'
-                    className='rounded-circle'
-                  />
-                  <span>Anna Deynah</span>
-                </a>
-              </div>
-            </li>
+  return (
+    <div>
+      <nav id='Navigation'>
+        <div className='container'>
+          <Link to='/' className='aviskr'>
+            Aviskr
+          </Link>
+          <Media query='(max-width: 750px)'>
+            {matches =>
+              matches ? (
+                <div class='menu-wrap'>
+                  <input type='checkbox' className='toggler' id='checkbox' />
+                  <div className='hamburger'>
+                    <div />
+                  </div>
+                  <div className='menu'>
+                    <div className='overlay'>
+                      <div>
+                        <ul>
+                          <li>
+                            <Link onClick={closeOverlay} to='/about'>
+                              About
+                            </Link>
+                          </li>
+                          <li>
+                            <button onClick={showStories}>
+                              <p>Stories</p>
+                              <ul>
+                                <li className='storieslist'>
+                                  <Link onClick={closeOverlay} to='/'>
+                                    Drone Wars
+                                  </Link>
+                                </li>
+                                <li className='storieslist'>
+                                  <Link onClick={closeOverlay} to='/'>
+                                    Story 2
+                                  </Link>
+                                </li>
+                              </ul>
+                            </button>
+                          </li>
+                          <li>
+                            <Link onClick={closeOverlay} to='/contact'>
+                              Contact
+                            </Link>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <ul>
+                  <li>
+                    <Link to='/about'>About</Link>
+                  </li>
+                  <span>/</span>
+                  <li>
+                    <NavbarModal />
+                  </li>
+                  <span>/</span>
+                  <li>
+                    <Link to='/contact'>Contact</Link>
+                  </li>
+                </ul>
+              )
+            }
+          </Media>
+        </div>
+      </nav>
+    </div>
+  );
+};
 
-            <MDBSideNavNav>
-              <MDBSideNavLink to='/other-page' topLevel>
-                <MDBIcon icon='pencil-alt' className='mr-2' />
-                Submit listing
-              </MDBSideNavLink>
-              <MDBSideNavCat
-                name='Submit blog'
-                id='submit-blog'
-                icon='chevron-right'
-              >
-                <MDBSideNavLink>Submit listing</MDBSideNavLink>
-                <MDBSideNavLink>Registration form</MDBSideNavLink>
-              </MDBSideNavCat>
-              <MDBSideNavCat
-                name='Instruction'
-                id='instruction'
-                icon='hand-pointer'
-                href='#'
-              >
-                <MDBSideNavLink>For bloggers</MDBSideNavLink>
-                <MDBSideNavLink>For authors</MDBSideNavLink>
-              </MDBSideNavCat>
-              <MDBSideNavCat name='About' id='about' icon='eye'>
-                <MDBSideNavLink>Instruction</MDBSideNavLink>
-                <MDBSideNavLink>Monthly meetings</MDBSideNavLink>
-              </MDBSideNavCat>
-              <MDBSideNavCat name='Contact me' id='contact-me' icon='envelope'>
-                <MDBSideNavLink>FAQ</MDBSideNavLink>
-                <MDBSideNavLink>Write a message</MDBSideNavLink>
-              </MDBSideNavCat>
-            </MDBSideNavNav>
-          </MDBSideNav>
-        </MDBContainer>
-      </Router>
-    );
-  }
-}
-
-export default SideNavPage;
+export default Navbar;

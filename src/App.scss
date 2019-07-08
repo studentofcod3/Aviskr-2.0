@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap');
 
 $primary-text-color: #999;
-$text-color-light: #ddd;
+$Tab2-Background-Color: #ddd;
 $Primary-background-color: #666;
-$Primary-background-color-dark: #333;
+$Tab1-Background-Color: #333;
 $head-foot-background-color: #bbb;
 
 
+.App{
+  overflow: hidden;
+}
 
 .App{
   background: $Primary-background-color;
@@ -64,6 +67,7 @@ ul{ list-style: none}
   }
 }
 
+// Story tabs
 #home-tab{
   padding: 0;
 
@@ -89,9 +93,9 @@ ul{ list-style: none}
     
     .tab1{     
       button{
-        background: $Primary-background-color-dark;
-        color: $text-color-light;
-        border-top: solid 0.001px darken($Primary-background-color-dark, 20%);
+        background: $Tab1-Background-Color;
+        color: $Tab2-Background-Color;
+        border-top: solid 0.001px darken($Tab1-Background-Color, 20%);
         border-left: none;
       }
       
@@ -100,9 +104,9 @@ ul{ list-style: none}
     .tab2{
       
       button{
-        background: $text-color-light;
-        color: $Primary-background-color-dark;
-        border-top: solid 0.001px darken($text-color-light, 20%);
+        color: $Tab1-Background-Color;
+        background: $Tab2-Background-Color;
+        border-top: solid 0.001px darken($Tab2-Background-Color, 20%);
         border-right: none;
         
       }
@@ -123,12 +127,12 @@ ul{ list-style: none}
   height: 50vh;
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  grid-gap: 2rem;
+  // grid-gap: 2rem;
   padding: 2rem;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   background: $Primary-background-color;
-  color: $text-color-light;
+  color: $Tab2-Background-Color;
   
   .image-container{
     display: flex;
@@ -177,13 +181,13 @@ ul{ list-style: none}
 
 // Carousel Alternate state colors
 #carousel-item{
-  color: #ddd;
-  background: $Primary-background-color-dark;
+  background: $Tab1-Background-Color;
+  color: $Tab2-Background-Color;
 }
 
 #carousel-item2{
-  background: #ddd;
-  color: $Primary-background-color-dark;
+  background: $Tab2-Background-Color;
+  color: $Tab1-Background-Color;
 }
   
 
@@ -223,7 +227,7 @@ ul{ list-style: none}
 }
 
 //Media Queries
-@media only screen and (max-width: 750px){
+@media only screen and (max-width: 767px){
   // Aviskr logo switch to right
   #Navigation{
     width: 100%;
@@ -252,8 +256,8 @@ ul{ list-style: none}
       }
   
       .tab1{
-        background: $Primary-background-color-dark;
-        color: $text-color-light;
+        background: $Tab1-Background-Color;
+        color: $Tab2-Background-Color;
   
       }
   
@@ -267,7 +271,7 @@ ul{ list-style: none}
 
   // Stacking Carousel
   #carousel-item, #carousel-item2{
-    height: 100vh;
+    height: 110vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -277,17 +281,18 @@ ul{ list-style: none}
     .container{
       margin: 0;
       padding: 0;
-
+      margin-bottom: 2rem;
+      
       img{
         margin: 0;
         padding: 0;
         width: 100%;
         height: 100%;
-        border-radius: 4px;
+        border-radius: 0px;
       }
   
       p{
-        margin-top: 1rem;
+        margin: 1rem;
       }
     }
   }
@@ -298,7 +303,7 @@ ul{ list-style: none}
 
   // Stacking stories
   #FirstStory, #SecondStory{
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -310,7 +315,6 @@ ul{ list-style: none}
       display: flex;
       justify-content: center;
       img{
-        margin-top: 0;
         width: 100%;
         height: auto;
         overflow: hidden;
@@ -318,7 +322,7 @@ ul{ list-style: none}
     }
 
     p{
-      padding: 0 1rem;
+      margin: 1rem;
     }
   }
   
@@ -368,6 +372,13 @@ ul{ list-style: none}
     }
   }
 }
+
+@media only screen and (min-width: 768px) and (max-width:1024px){
+  #FirstStory, #SecondStory{
+    height: 35vh;
+    }
+  
+  }
 
 
 

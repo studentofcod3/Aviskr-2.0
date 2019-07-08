@@ -1,13 +1,16 @@
 $primary-color: #aaa;
-$secondary-color: #fff;
-$overlay-color: rgba(119, 119, 119, 0.4);
+$primary-text-color: #ddd;
+$overlay-color: rgba(40, 40, 40, 0.902);
 $menu-speed: 0.75s;
 
-.MDBNavbarNav{
-// Need to fix link issues (ie: don't want to be using important tags)
-  width: 100%;
-  background: $overlay-color;
-  z-index: 200;
+button{
+  background: rgba(0,0,0,0);
+  border: none;
+  color: $primary-text-color;
+
+  &:hover{
+      color: darken($primary-text-color, 40%)
+  }
 }
 
 .menu-wrap{
@@ -126,28 +129,34 @@ z-index: 1;
       opacity: 0;
       transition: opacity ease;
 
-      ul > li{
-        list-style: none;
-        color: #fff;
-        font-size: 2rem;
-
-        & > a{
-          color: inherit;
-          text-decoration: none;
-          transition: color 0.2s ease;
-        }
+      ul{
+        padding: 2.5rem;
         
-        
-        ul{
-          li{
-            font-size: 1.3rem;
-            a{
+        li{
+          list-style: none;
+          font-size: 2.5rem;
 
+  
+           a, button{
+            transition: color 0.3s ease;
+          }
+          
+          ul{
+            padding: 0;
+            margin: 0;
+            .storieslist{
+              display: none;
+              font-size: 1.3rem;
+              width: 80vw;
+              a{
+                padding: 0 4rem;
+                width: 100%;
+              }
             }
           }
-        }
-
-       }
+  
+         }
+      }
      }
   }
 }

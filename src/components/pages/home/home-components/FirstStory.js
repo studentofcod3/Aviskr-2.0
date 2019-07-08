@@ -1,5 +1,5 @@
 import React from "react";
-import FirstStoryHero from "../images/firstArticleHero.jpg";
+import FirstStoryHero from "../../../../images/firstArticleHero.jpg";
 import "../../../../App.scss";
 
 const FirstStory = () => {

@@ -44,7 +44,12 @@ a{
   
 }
 
-// Navbar Modal
+// Navbar 
+
+// Hiding modal on the index.html 
+#modal{
+  display: none;
+}
 .navbarModalBtn{
   color: $primary-text-color;
   border: none;

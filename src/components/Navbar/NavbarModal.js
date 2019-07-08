@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Modal from "react-responsive-modal";
 import ReactDOM from "react-dom";
-import firstStory from "../pages/home/images/firstArticleHero.jpg";
-import secondStory from "../pages/home/images/secondArticleHero.jpg";
+
+import firstStory from "../../images/firstArticleHero.jpg";
+import secondStory from "../../images/secondArticleHero.jpg";
 
 import "./navbar.scss";
 
