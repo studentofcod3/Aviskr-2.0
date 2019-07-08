@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import NavbarModal from "./NavbarModal";
 import Media from "react-media";
+
+import NavbarModal from "./NavbarModal";
 
 import "./navbar.scss";
 import "./hamburger-menu.scss";
@@ -27,31 +28,25 @@ const Navbar = () => {
                       <div>
                         <ul>
                           <li>
-                            <a href='/about' id='hamburger-menu-link'>
-                              About
-                            </a>
+                            <Link to='/about'>About</Link>
                           </li>
                           <li>
-                            <a href='/'>
-                              <p id='hamburger-menu-link'>Stories</p>
+                            <Link to='/'>
+                              <p>Stories</p>
                               <ul>
                                 <li>
-                                  <a href='/' id='hamburger-menu-link'>
-                                    Drone Wars
-                                  </a>
+                                  <Link to='/'>Drone Wars</Link>
                                 </li>
                                 <li>
-                                  <a href='/' id='hamburger-menu-link'>
+                                  <Link to='/' id='hamburger-menu-link'>
                                     Story 2
-                                  </a>
+                                  </Link>
                                 </li>
                               </ul>
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href='/contact' id='hamburger-menu-link'>
-                              Contact
-                            </a>
+                            <Link to='/contact'>Contact</Link>
                           </li>
                         </ul>
                       </div>

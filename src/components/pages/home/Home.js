@@ -1,12 +1,12 @@
 import React from "react";
-import HomeTop from "./home-components/home-top/HomeTop";
+import NavbarMini from "./home-components/home-top/NavbarMini";
 import FirstStory from "./home-components/FirstStory";
 import SecondStory from "./home-components/SecondStory";
 
 const Home = () => {
   return (
     <div>
-      <HomeTop />
+      <NavbarMini />
       <FirstStory />
       <SecondStory />
     </div>
