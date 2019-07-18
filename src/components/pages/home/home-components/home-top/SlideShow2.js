@@ -16,7 +16,7 @@ const SlideShow2 = () => {
         <Carousel.Item>
           <div id='carousel-item2'>
             <div className='container'>
-              <p className='lead'>Story 2 Highlights</p>
+              <h3>Story 2 Highlights</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Accusamus labore, ut animi modi natus minima excepturi dolorem
@@ -35,7 +35,7 @@ const SlideShow2 = () => {
               <img src={slide2} alt='Second slide' />
             </div>
             <div className='container'>
-              <p className='lead'>Story 2 Highlights</p>
+              <h3>Story 2 Highlights</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Accusamus labore, ut animi modi natus minima excepturi dolorem
@@ -48,7 +48,7 @@ const SlideShow2 = () => {
         <Carousel.Item>
           <div id='carousel-item2'>
             <div className='container'>
-              <p className='lead'>Story 2 Highlights</p>
+              <h3>Story 2 Highlights</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Accusamus labore, ut animi modi natus minima excepturi dolorem

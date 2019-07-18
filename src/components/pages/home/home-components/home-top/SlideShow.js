@@ -19,7 +19,7 @@ const SlideShow = () => {
               <img src={slide1} alt='First slide' />
             </div>
             <div className='container'>
-              <p className='lead'>Drone Warefare Highlights</p>
+              <h3>Drone Warfare Highlights</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Accusamus labore, ut animi modi natus minima excepturi dolorem
@@ -35,7 +35,7 @@ const SlideShow = () => {
               <img src={slide2} alt='Second slide' />
             </div>
             <div className='container'>
-              <p className='lead'>Drone Warefare Highlights</p>
+              <h3>Drone Warfare Highlights</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Accusamus labore, ut animi modi natus minima excepturi dolorem
@@ -51,7 +51,7 @@ const SlideShow = () => {
               <img src={slide3} alt='Third slide' />
             </div>
             <div className='container'>
-              <p className='lead'>Drone Warefare Highlights</p>
+              <h3>Drone Warfare Highlights</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Accusamus labore, ut animi modi natus minima excepturi dolorem
@@ -60,11 +60,6 @@ const SlideShow = () => {
               </p>
             </div>
           </div>
-
-          {/* <Carousel.Caption>
-            <h3>Article Z</h3>
-            <p>Some summary of article z</p>
-          </Carousel.Caption> */}
         </Carousel.Item>
       </Carousel>
     </div>

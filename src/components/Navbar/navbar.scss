@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap');
 
-$primary-text-color: #ddd;
-$text-color-light: #ddd;
+$primary-text-color: #222;
+$text-color-light: #888;
 $Primary-background-color: #666;
 $Primary-background-color-dark: #333;
-$head-foot-background-color: #bbb;
+$head-foot-background-color: #fff;
 
 // Links
 a{
@@ -17,22 +17,25 @@ a{
 }
 // Navbar
 #Navigation{
+  border: solid 2px #222;
   background: $head-foot-background-color;
   height: 3rem;
   padding: 0;
+
+  &:hover{
+    background: cyan;
+  }
   
   .container{
     padding: 0;
-    color: #999;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
   
 
     ul{
       display: flex;
-      flex-direction: row;
+      margin: 0;
 
       li, span{
         padding: 1rem;
@@ -96,10 +99,14 @@ a{
   } 
 }
 
-@media only screen and (max-width: 750px){
+@media only screen and (max-width: 767px){
 // Navbar
   #Navigation{
     .container{
+      .aviskr{
+        padding: 0.2rem;
+      }
+
       ul{
         display: flex;
         flex-direction: column;

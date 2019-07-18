@@ -1,6 +1,6 @@
-$primary-color: #aaa;
-$primary-text-color: #ddd;
-$overlay-color: rgba(40, 40, 40, 0.902);
+$primary-color: #222;
+$primary-text-color: #222;
+$overlay-color: #E8E316;
 $menu-speed: 0.75s;
 
 button{
@@ -16,13 +16,13 @@ button{
 .menu-wrap{
 position: fixed;
 top: 0;
-left: 0;
+right: 0;
 z-index: 1;
 
 .toggler{
  position: absolute;
  top: 0;
- left: 0;
+ right: 0;
  z-index: 2;
  cursor: pointer;
  width: 50px;
@@ -69,12 +69,11 @@ z-index: 1;
 .hamburger{
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 1;
-  width: 60px;
-  height: 60px;
-  padding: 1rem;
-  background: var($primary-color);
+  width: 50px;
+  height: 50px;
+  padding: 0.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,7 +84,7 @@ z-index: 1;
     flex: none;
     width: 100%;
     height: 2px;
-    background: #fff;
+    background: #222;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +112,7 @@ z-index: 1;
 .menu{
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   visibility: hidden;

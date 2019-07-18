@@ -50,6 +50,11 @@ const Navbar = () => {
                       <div>
                         <ul>
                           <li>
+                            <Link onClick={closeOverlay} to='/'>
+                              Home
+                            </Link>
+                          </li>
+                          <li>
                             <Link onClick={closeOverlay} to='/about'>
                               About
                             </Link>
@@ -83,6 +88,10 @@ const Navbar = () => {
                 </div>
               ) : (
                 <ul>
+                  <li>
+                    <Link to='/'>Home</Link>
+                  </li>
+                  <span>/</span>
                   <li>
                     <Link to='/about'>About</Link>
                   </li>

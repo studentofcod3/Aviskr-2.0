@@ -6,7 +6,7 @@ const FirstStory = () => {
   return (
     <div id='FirstStory' className='container'>
       <div>
-        <p className='lead'>Story 1</p>
+        <h3>Story 1</h3>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora
           officiis eaque culpa aperiam iure. Cumque culpa laudantium deserunt

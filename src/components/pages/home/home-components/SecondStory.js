@@ -9,7 +9,7 @@ const SecondStory = () => {
         <img src={SecondStoryHero} alt='Story Hero' />
       </div>
       <div>
-        <p className='lead'>Story 2</p>
+        <h3>Story 2</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
           aliquid obcaecati praesentium illum fugit optio nobis nemo assumenda

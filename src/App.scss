@@ -27,7 +27,7 @@ $head-foot-background-color: #bbb;
 
 .aviskr{
   font-family: 'Cinzel Decorative', cursive;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
 }
 
 ul{ list-style: none}
@@ -124,7 +124,8 @@ ul{ list-style: none}
 }
 
 #FirstStory, #SecondStory{
-  height: 50vh;
+  font-size: 1.2rem;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(2,1fr);
   // grid-gap: 2rem;
@@ -133,6 +134,8 @@ ul{ list-style: none}
   justify-content: center;
   background: $Primary-background-color;
   color: $Tab2-Background-Color;
+
+
   
   .image-container{
     display: flex;
@@ -163,8 +166,11 @@ ul{ list-style: none}
       border-radius: 38px;
     }
 
+    h3{ margin: 1rem 2rem};
+
     p{
       margin: 0 2rem;
+      font-size: 1.2rem;
     }
   }
 
@@ -228,21 +234,6 @@ ul{ list-style: none}
 
 //Media Queries
 @media only screen and (max-width: 767px){
-  // Aviskr logo switch to right
-  #Navigation{
-    width: 100%;
-    .container{
-      display: block;
-      .aviskr{
-        position: absolute;
-        right: 1rem;
-        top: 0.2rem;     
-      }
-
-    }
-
-  }
-
   #home-tab{  
     ul{
       justify-content: space-between;
@@ -291,8 +282,12 @@ ul{ list-style: none}
         border-radius: 0px;
       }
   
+      h3{ 
+        margin: 1rem;
+      }
       p{
         margin: 1rem;
+        font-size: 1.1rem;
       }
     }
   }
@@ -303,7 +298,7 @@ ul{ list-style: none}
 
   // Stacking stories
   #FirstStory, #SecondStory{
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -321,7 +316,7 @@ ul{ list-style: none}
       }
     }
 
-    p{
+    p, h3{
       margin: 1rem;
     }
   }
