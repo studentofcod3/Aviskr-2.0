@@ -5,14 +5,15 @@ $text-color-light: #888;
 $Primary-background-color: #666;
 $Primary-background-color-dark: #333;
 $head-foot-background-color: #fff;
+$navbar-hover-color: #0892D0;
 
 // Links
 a{
-  text-decoration: none !important;
-  color: $primary-text-color !important;
+  text-decoration: none;
+  color: $primary-text-color;
 
   &:hover{
-    color: darken($primary-text-color, 40%) !important;
+    color: darken($primary-text-color, 40%);
   }
 }
 // Navbar
@@ -21,13 +22,10 @@ a{
   background: $head-foot-background-color;
   height: 3rem;
   padding: 0;
-
-  &:hover{
-    background: cyan;
-  }
   
   .container{
     padding: 0;
+    padding-left: 0.6rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,15 +37,22 @@ a{
 
       li, span{
         padding: 1rem;
-        padding-right: 0;
+        padding-left: 0;
+      }
 
+      li{
+        a{
+          &:hover{
+            transition: all ease-in 0.1s;
+            color: $navbar-hover-color !important;
+            border-bottom: solid 2px #111;
+          }
+        }
       }
     }
   }
   
 }
-
-// Navbar 
 
 // Hiding modal on the index.html 
 #modal{
@@ -55,11 +60,14 @@ a{
 }
 .navbarModalBtn{
   color: $primary-text-color;
-  border: none;
   background: $head-foot-background-color;
-
+  font-size: 0.95rem;
+  border-bottom: 2px hidden #000;
+  
   &:hover{
-    color: #666;
+    cursor: pointer;
+    border-bottom-style: solid;
+    color: $navbar-hover-color;
   }
 }
 

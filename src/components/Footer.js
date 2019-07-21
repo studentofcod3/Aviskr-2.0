@@ -23,18 +23,16 @@ const Footer = () => {
             <li>
               <Link to='/about'>About</Link>
             </li>
+            <li>Stories</li>
             <li>
-              <Link to='/'>
-                <p>Stories</p>
-                <ul>
-                  <li>
-                    <a>Drone Wars</a>
-                  </li>
-                  <li>
-                    <a>China</a>
-                  </li>
-                </ul>
-              </Link>
+              <ul>
+                <li>
+                  <a href='/'>Drone Wars</a>
+                </li>
+                <li>
+                  <a href='/'>China</a>
+                </li>
+              </ul>
             </li>
             <li>
               <Link to='/contact'>Contact</Link>

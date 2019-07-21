@@ -1,14 +1,14 @@
 import React from "react";
-import NavbarMini from "./home-components/home-top/NavbarMini";
-import FirstStory from "./home-components/FirstStory";
-import SecondStory from "./home-components/SecondStory";
+import HomeShowcase from "./home-components/HomeShowcase";
+import Story1 from "./home-components/Story1";
+import Story2 from "./home-components/Story2";
 
 const Home = () => {
   return (
     <div>
-      <NavbarMini />
-      <FirstStory />
-      <SecondStory />
+      <HomeShowcase />
+      <Story1 />
+      <Story2 />
     </div>
   );
 };

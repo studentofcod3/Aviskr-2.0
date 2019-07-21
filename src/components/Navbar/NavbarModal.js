@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Modal from "react-responsive-modal";
 import ReactDOM from "react-dom";
+import { Link } from "react-router-dom";
 
-import firstStory from "../../images/firstArticleHero.jpg";
-import secondStory from "../../images/secondArticleHero.jpg";
+import firstStory from "../../images/story1/story-1-graphic.jpg";
+import secondStory from "../../images/story2/story-2-graphic.jpg";
 
 import "./navbar.scss";
 
@@ -31,15 +32,12 @@ const NavbarModal = () => {
               <h4>Drone Warfare</h4>
               <ul>
                 <li>
-                  <a href='/' id='modal-link'>
-                    Data
-                  </a>
+                  <a href='/'>Data</a>
                 </li>
                 <li>
-                  <a href='/'>Animations</a>
-                </li>
-                <li>
-                  <a href='/'>Editorial</a>
+                  <Link onClick={onCloseModal} to='/dronewars/article'>
+                    Editorial
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -49,9 +47,6 @@ const NavbarModal = () => {
               <ul>
                 <li>
                   <a href='/'>Data</a>
-                </li>
-                <li>
-                  <a href='/'>Animations</a>
                 </li>
                 <li>
                   <a href='/'>Editorial</a>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Media from "react-media";
 
@@ -8,6 +8,28 @@ import "./navbar.scss";
 import "./hamburger-menu.scss";
 
 const Navbar = () => {
+  const [display, setDisplay] = useState("none");
+
+  const closeOverlay = () => {
+    document.getElementById("checkbox").checked = false;
+  };
+
+  const showStories = () => {
+    let showStoriesDisplay = document.querySelectorAll(".storieslist");
+
+    if (display === "none") {
+      setDisplay("block");
+      showStoriesDisplay.forEach(StoryDisplay => {
+        StoryDisplay.style.display = "block";
+      });
+    } else {
+      setDisplay("none");
+      showStoriesDisplay.forEach(StoryDisplay => {
+        StoryDisplay.style.display = "none";
+      });
+    }
+  };
+
   return (
     <div>
       <nav id='Navigation'>
@@ -15,11 +37,11 @@ const Navbar = () => {
           <Link to='/' className='aviskr'>
             Aviskr
           </Link>
-          <Media query='(max-width: 750px)'>
+          <Media query='(max-width: 768px)'>
             {matches =>
               matches ? (
-                <div class='menu-wrap'>
-                  <input type='checkbox' className='toggler' />
+                <div className='menu-wrap'>
+                  <input type='checkbox' className='toggler' id='checkbox' />
                   <div className='hamburger'>
                     <div />
                   </div>
@@ -28,25 +50,36 @@ const Navbar = () => {
                       <div>
                         <ul>
                           <li>
-                            <Link to='/about'>About</Link>
+                            <Link onClick={closeOverlay} to='/'>
+                              Home
+                            </Link>
                           </li>
                           <li>
-                            <Link to='/'>
+                            <Link onClick={closeOverlay} to='/about'>
+                              About
+                            </Link>
+                          </li>
+                          <li>
+                            <button onClick={showStories}>
                               <p>Stories</p>
                               <ul>
-                                <li>
-                                  <Link to='/'>Drone Wars</Link>
+                                <li className='storieslist'>
+                                  <Link onClick={closeOverlay} to='/'>
+                                    Drone Wars
+                                  </Link>
                                 </li>
-                                <li>
-                                  <Link to='/' id='hamburger-menu-link'>
+                                <li className='storieslist'>
+                                  <Link onClick={closeOverlay} to='/'>
                                     Story 2
                                   </Link>
                                 </li>
                               </ul>
-                            </Link>
+                            </button>
                           </li>
                           <li>
-                            <Link to='/contact'>Contact</Link>
+                            <Link onClick={closeOverlay} to='/contact'>
+                              Contact
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -58,6 +91,7 @@ const Navbar = () => {
                   <li>
                     <Link to='/'>Home</Link>
                   </li>
+                  <span>/</span>
                   <li>
                     <Link to='/about'>About</Link>
                   </li>
