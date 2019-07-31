@@ -32,7 +32,7 @@ const NavbarModal = () => {
               <h4>Drone Warfare</h4>
               <ul>
                 <li>
-                  <a href='/'>Data</a>
+                  <a href='/dronewars/data'>Data</a>
                 </li>
                 <li>
                   <Link onClick={onCloseModal} to='/dronewars/article'>

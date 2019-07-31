@@ -75,15 +75,19 @@ const Story1 = () => {
         height: 50%;
 
         .badge {
-          background: #e8e316;
-          border-radius: 2px;
+          background: #ffd700;
+          border-radius: 4px;
+          padding: 0.2rem;
+          font-size: 0.8rem;
+          line-height: 1.3;
         }
 
         .title {
-          font-size: 2rem;
+          font-size: 1.4rem;
         }
 
         .content {
+          padding: 1rem;
         }
       }
     }

@@ -107,6 +107,12 @@ a{
   } 
 }
 
+// Adding position fixed to nav on scroll
+.fixed-nav{
+  position: fixed;
+  width: 100%;
+}
+
 @media only screen and (max-width: 767px){
 // Navbar
   #Navigation{

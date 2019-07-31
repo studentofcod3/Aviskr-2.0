@@ -9,15 +9,9 @@ import poster from "../../../images/Hero/drone-full.jpg";
 
 
 const DroneWarsArticle = () => {
-  // <!-- JQuery CDN -->
-  //   <script
-  //     src="https://code.jquery.com/jquery-3.3.1.min.js"
-  //     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  //     crossorigin="anonymous"
-  //   ></script>
+  
+  
 
-  //   <!-- Importing js file -->
-  //   <script src="js/main.js"></script>
   const Div = styled.div`
     .image-container{
       background: #000;
@@ -104,7 +98,63 @@ const DroneWarsArticle = () => {
 
       }
     }
+
+    @media (max-width: 768px){
+      .subtitle-btns{
+        overflow: hidden;
+        div{
+          flex-direction: column;
+          align-items: center;
+
+          a{
+            margin-bottom: 1rem;
+          }
+        }
+      }
+
+      .drone-article{
+        padding: 3rem 3rem;
+        .date{
+          margin-bottom: 1.5rem;
+        }
+  
+        .drone-title{
+          .section-title{
+            
+          }
+  
+          .section-title-sub{
+            
+          }
+  
+        }
+  
+        .drone-article-body{
+          padding: 1rem 0;
+  
+          .drone-article-text{
+            #article-advice{
+              
+            }
+  
+            h3{
+            }
+  
+            .figures{
+              margin-top: 2rem;
+              img{
+                
+              }
+  
+              span{
+              }
+            }
+          }
+        }
+      }
+    }
   `;
+
   return (
     <Div>
       <div className="image-container">
@@ -571,4 +621,3 @@ const DroneWarsArticle = () => {
   );
 };
 export default DroneWarsArticle
-

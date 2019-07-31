@@ -1,17 +1,77 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import "../App.scss";
 
 const Footer = () => {
+  const Footer = styled.div`
+    box-sizing: border-box;
+    text-align: left;
+    .container {
+      display: grid;
+      grid-gap: 0.5rem;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 1.4rem;
+      span {
+        font-size: 2.7rem;
+      }
+
+      div {
+        line-height: 1.6;
+        h3 {
+          font-size: 1.3rem;
+        }
+        ul {
+          padding: 0;
+          li {
+            ul {
+              padding-left: 0.7rem;
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      text-align: center;
+      .container {
+        display: flex;
+        flex-direction: column;
+
+        span {
+          font-size: 2.7rem;
+        }
+
+        .quick-links {
+          display: none;
+        }
+
+        div {
+          padding-top: 0.2rem;
+          line-height: 1.6;
+          h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0;
+          }
+
+          ul {
+            margin: 0;
+          }
+        }
+      }
+    }
+  `;
   return (
-    <div id='Footer'>
+    <Footer>
       <div className='container'>
         <span className='aviskr'>Aviskr</span>
         <div>
           <h3>Contact</h3>
           <ul>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>(020) 1234 5678</li>
+            <li>+44 (0)7123 678 910</li>
             <li>info@aviskr.com</li>
+            <li>facebook</li>
+            <li>twitter</li>
           </ul>
         </div>
         <div className='quick-links'>
@@ -39,15 +99,8 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
-          <h3>Connect</h3>
-          <ul>
-            <li>@instagram</li>
-            <li>@twitter</li>
-          </ul>
-        </div>
       </div>
-    </div>
+    </Footer>
   );
 };
 
