@@ -67,6 +67,7 @@ const SlideShow = () => {
             align-self: flex-start;
             margin-top: 0.6rem;
             margin-right: 0.4rem;
+            padding: 0.4rem;
           }
         }
 
