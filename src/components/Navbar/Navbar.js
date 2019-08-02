@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Media from "react-media";
 
@@ -7,26 +7,8 @@ import "./hamburger-menu.scss";
 import styled from "styled-components";
 
 const Navbar = () => {
-  const [display, setDisplay] = useState("none");
-
   const closeOverlay = () => {
     document.getElementById("checkbox").checked = false;
-  };
-
-  const showStories = () => {
-    let showStoriesDisplay = document.querySelectorAll(".storieslist");
-
-    if (display === "none") {
-      setDisplay("block");
-      showStoriesDisplay.forEach(StoryDisplay => {
-        StoryDisplay.style.display = "block";
-      });
-    } else {
-      setDisplay("none");
-      showStoriesDisplay.forEach(StoryDisplay => {
-        StoryDisplay.style.display = "none";
-      });
-    }
   };
 
   // Implementing sticky NAVIGATION
@@ -37,10 +19,8 @@ const Navbar = () => {
 
     if (window.scrollY > navTop) {
       nav.classList.add("fixed-nav");
-      // document.body.style.paddingTop = nav.offsetHeight + "px";
     } else {
       nav.classList.remove("fixed-nav");
-      // document.body.style.paddingTop = 0;
     }
   };
 
@@ -50,14 +30,15 @@ const Navbar = () => {
   // Styling
   const Navigation = styled.div`
     #Navigation {
+      box-sizing: border-box;
       border: solid 2px #222;
-      background: $head-foot-background-color;
+      background: #fff;
       height: 3rem;
       padding: 0;
+      z-index: 1;
 
       .container {
-        padding: 0;
-        padding-left: 0.6rem;
+        padding: 0.6rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -74,10 +55,11 @@ const Navbar = () => {
 
           li {
             a {
+              color: #000;
               &:hover {
                 transition: all ease-in 0.1s;
                 color: $navbar-hover-color !important;
-                border-bottom: solid 2px #111;
+                border-bottom: solid 1px #111;
               }
             }
           }
@@ -89,13 +71,13 @@ const Navbar = () => {
   return (
     <Navigation>
       <div id='Navigation'>
-        <div className='container'>
-          <Link to='/' className='aviskr'>
-            Aviskr
-          </Link>
-          <Media query='(max-width: 768px)'>
-            {matches =>
-              matches ? (
+        <Media query='(max-width: 768px)'>
+          {matches =>
+            matches ? (
+              <div className='container'>
+                <Link to='/' className='aviskr'>
+                  Aviskr
+                </Link>
                 <div className='menu-wrap'>
                   <input type='checkbox' className='toggler' id='checkbox' />
                   <div className='hamburger'>
@@ -126,7 +108,12 @@ const Navbar = () => {
                     </div>
                   </div>
                 </div>
-              ) : (
+              </div>
+            ) : (
+              <div className='container'>
+                <Link to='/' className='aviskr'>
+                  Aviskr
+                </Link>
                 <ul>
                   <li>
                     <Link to='/'>Home</Link>
@@ -140,10 +127,10 @@ const Navbar = () => {
                     <Link to='/contact'>Contact</Link>
                   </li>
                 </ul>
-              )
-            }
-          </Media>
-        </div>
+              </div>
+            )
+          }
+        </Media>
       </div>
     </Navigation>
   );

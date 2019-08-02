@@ -138,31 +138,20 @@ z-index: 1;
       transition: opacity ease;
 
       ul{
-        padding: 2.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
         
         li{
           list-style: none;
           font-size: 2.5rem;
+          margin: 1.4rem 0;
 
   
            a, button{
             transition: color 0.3s ease;
           }
-          
-          ul{
-            padding: 0;
-            margin: 0;
-            .storieslist{
-              display: none;
-              font-size: 1.3rem;
-              width: 80vw;
-              a{
-                padding: 0 4rem;
-                width: 100%;
-              }
-            }
-          }
-  
          }
       }
      }

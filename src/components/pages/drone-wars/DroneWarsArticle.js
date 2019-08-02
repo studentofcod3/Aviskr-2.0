@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import fig1 from "../../../images/drone-figures/fig1.png";
 import fig2 from "../../../images/drone-figures/fig2.png";
@@ -63,7 +64,7 @@ const DroneWarsArticle = () => {
         .section-title-sub{
           font-size: 2rem;
           margin: 0;
-          margin-bottom: 2.4rem;
+          padding-bottom: 2.4rem;
         }
 
       }
@@ -120,24 +121,29 @@ const DroneWarsArticle = () => {
   
         .drone-title{
           .section-title{
-            
+            font-size: 2rem;
+            padding-bottom: .8rem;
           }
   
           .section-title-sub{
-            
+            font-size: 1.3rem;
+            padding-bottom: 1rem;
           }
   
         }
   
         .drone-article-body{
           padding: 1rem 0;
-  
+          
           .drone-article-text{
+            font-size: 1.15rem;
             #article-advice{
-              
+              padding-bottom: 1rem;
+              font-size: 1.15rem;
             }
   
             h3{
+
             }
   
             .figures{
@@ -192,8 +198,7 @@ const DroneWarsArticle = () => {
           <div className="drone-article-text">
             <div>
               <div id="article-advice">
-                For full, interactive panels of our data, refer to the dashboard
-                section of the Aviskr site. The following piece is an objective
+                For full, interactive panels of our data, refer to the dashboard found <Link to="/dronewars/data">Here</Link>. The following piece is an objective
                 analysis from said data. We strongly advise you to form your
                 conclusions based on both the investigation below and the original
                 datasets.

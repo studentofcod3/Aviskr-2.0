@@ -1,10 +1,40 @@
 import React from "react";
 import "../../App.scss";
+import styled from "styled-components";
 
 const Contact = () => {
+  const Contact = styled.div`
+    // Contact page - Form styling
+    .container {
+      .text-fields {
+        .text-input,
+        button,
+        h3 {
+          display: block;
+          margin: 2rem auto;
+          width: 70%;
+          border-radius: 4px;
+        }
+
+        textarea {
+          height: 5rem;
+        }
+
+        button {
+          background: #555;
+          border: none;
+          height: 2.2rem;
+        }
+      }
+
+      h3 {
+        font-weight: 200;
+      }
+    }
+  `;
   return (
     // <!-- Contact Form -->
-    <section id='contact'>
+    <Contact>
       <div class='container'>
         <form method='POST' data-netlify='true' data-netlify-recaptcha='true'>
           {/* <!-- data-netlify-recaptcha filters spam. Need to add it into the form below --> */}
@@ -53,7 +83,7 @@ const Contact = () => {
           </div>
         </form>
       </div>
-    </section>
+    </Contact>
   );
 };
 

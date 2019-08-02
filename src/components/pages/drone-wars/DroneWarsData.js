@@ -1,29 +1,34 @@
 import React, { useEffect } from "react";
-// import TableauReport from "tableau-react-embed";
+import styled from "styled-components";
 
 const DroneWarsData = () => {
   useEffect(() => {
-    console.log("hello");
-    const containerDiv = document.getElementById("vizContainer"),
-      url =
-        "https://public.tableau.com/profile/afraz.ahmad#!/vizhome/DroneWars/Overview",
+    let containerDiv = document.getElementById("vizContainer"),
+      url = "https://public.tableau.com/views/DroneWars/Overview",
       options = {
         hideTabs: false,
+        width: "70%",
+        height: "91vh",
         onFirstInteractive: function() {
           console.log("Run this code when the viz has finished loading.");
         }
       };
-    console.log("byebye");
 
     new window.tableau.Viz(containerDiv, url, options);
-
-    // const url2 = window.location.url + "&output=embed";
   }, []);
 
+  // Styling
+  const Div = styled.div`
+    #vizContainer {
+      display: flex;
+      justify-content: center;
+    }
+  `;
+
   return (
-    <div>
+    <Div>
       <div id='vizContainer' />
-    </div>
+    </Div>
 
     // <TableauReport url='https://public.tableau.com/profile/afraz.ahmad#!/vizhome/DroneWars/Overview' />
   );

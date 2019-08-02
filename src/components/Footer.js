@@ -7,10 +7,12 @@ const Footer = () => {
   const Footer = styled.div`
     box-sizing: border-box;
     text-align: left;
+    background: #fff;
+    padding-top: 2rem;
     .container {
       display: grid;
       grid-gap: 0.5rem;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       padding: 1.4rem;
       span {
         font-size: 2.7rem;
@@ -26,6 +28,9 @@ const Footer = () => {
           li {
             ul {
               padding-left: 0.7rem;
+
+              a {
+              }
             }
           }
         }
@@ -82,17 +87,6 @@ const Footer = () => {
             </li>
             <li>
               <Link to='/about'>About</Link>
-            </li>
-            <li>Stories</li>
-            <li>
-              <ul>
-                <li>
-                  <a href='/'>Drone Wars</a>
-                </li>
-                <li>
-                  <a href='/'>China</a>
-                </li>
-              </ul>
             </li>
             <li>
               <Link to='/contact'>Contact</Link>

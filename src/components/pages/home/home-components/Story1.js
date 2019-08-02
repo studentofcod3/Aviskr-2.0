@@ -1,159 +1,97 @@
 import React from "react";
 import styled from "styled-components";
+import Hero from "../../../../images/Hero/drone.jpg";
+import Data from "../../../../images/story1/dashboard2.jpg";
 
 const Story1 = () => {
-  const Story1Container = styled.div`
-    border: solid 2px #000;
-    border-top: none;
-  `;
-
-  const Banner = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    border: solid 1px #000;
-    transition: border ease-in 0.3s;
-    :hover {
-      border: solid 1px #e8e316;
-    }
-
-    .text-container {
-      padding: 1rem;
-      .badge {
-        background: #e8e316;
-        text-align: center;
-        border-radius: 2px;
-        color: #777;
-      }
-
-      .title {
-        font-size: 6rem;
-      }
-
-      .content {
-        font-size: 1.2rem;
-      }
-    }
-
-    .image-container {
+  const Div = styled.div`
+    background: #ffd700;
+    margin: 0;
+    padding: 2rem 0;
+    #Story1Container {
+      border: solid 2px #000;
+      border-radius: 4px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      border-left: solid 0.8px #777;
-      .container {
-        font-size: 4rem;
-      }
-    }
-  `;
-
-  const Content = styled.div`
-    display: flex;
-    border: solid 1px #000;
-    // border-top: none;
-    overflow: hidden;
-    height: 100%;
-
-    .content-piece1 {
-      border-left: none;
-    }
-    .content-piece {
-      height: 100vh;
-      border-left: solid 0.5px #000;
+      margin: 1.5rem;
+      background: #fff;
 
       .image-container {
-        height: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        border-bottom: solid 1px #888;
-        .container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-bottom: solid 2px #000;
+        img {
+          height: 100%;
+          width: 100%;
         }
       }
 
-      .text-container {
-        padding: 1rem;
-        height: 50%;
+      .content-container {
+        padding: 0 2rem;
 
-        .badge {
-          background: #ffd700;
-          border-radius: 4px;
-          padding: 0.2rem;
-          font-size: 0.8rem;
-          line-height: 1.3;
+        .container {
+          padding: 0.5rem 0;
+          display: flex;
+          justify-content: space-between;
+          .title {
+            font-size: 1.4rem;
+            font-weight: bold;
+          }
+
+          .badge {
+            background: #000;
+            color: #fff;
+            padding: 0.4rem;
+          }
         }
 
-        .title {
-          font-size: 1.4rem;
-        }
-
-        .content {
-          padding: 1rem;
+        p {
         }
       }
     }
   `;
 
   return (
-    <Story1Container>
-      <Banner>
-        <div className='text-container'>
-          <span className='badge'>Badge</span>
-          <div className='title'>Title</div>
-          <div className='content'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-            tempore! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Cupiditate, facere!
-          </div>
-        </div>
-        <div className='image-container'>
-          <div className='container'>Graphic</div>
-        </div>
-      </Banner>
-      <Content>
-        <div className='content-piece content-piece1'>
+    <div>
+      <Div>
+        <div id='Story1Container'>
           <div className='image-container'>
-            <div className='container'>Graphic 1</div>
+            <img src={Hero} alt='Drone Wars Article' />
           </div>
-          <div className='text-container'>
-            <span className='badge'>Badge</span>
-            <div className='title'>Article 1</div>
-            <div className='content'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-              tempore! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate, facere!
+          <div className='content-container'>
+            <div className='container'>
+              <span className='title'>Drone Wars</span>
+              <span className='badge'>Article</span>
             </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
+              fugiat enim dignissimos aliquam ex aliquid earum sunt facere
+              numquam provident.
+            </p>
           </div>
         </div>
-        <div className='content-piece'>
+      </Div>
+      <Div>
+        <div id='Story1Container'>
           <div className='image-container'>
-            <div className='container'>Graphic 2</div>
+            <img src={Data} alt='Drone Wars Data' />
           </div>
-          <div className='text-container'>
-            <span className='badge'>Badge</span>
-            <div className='title'>Article 2</div>
-            <div className='content'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-              tempore! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate, facere!
+          <div className='content-container'>
+            <div className='container'>
+              <span className='title'>Drone Wars</span>
+              <span className='badge'>Data</span>
             </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
+              fugiat enim dignissimos aliquam ex aliquid earum sunt facere
+              numquam provident.
+            </p>
           </div>
         </div>
-        <div className='content-piece'>
-          <div className='image-container'>
-            <div className='container'>Graphic 3</div>
-          </div>
-          <div className='text-container'>
-            <span className='badge'>Badge</span>
-            <div className='title'>Article 3</div>
-            <div className='content'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-              tempore! Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate, facere!
-            </div>
-          </div>
-        </div>
-      </Content>
-    </Story1Container>
+      </Div>
+    </div>
   );
 };
 
