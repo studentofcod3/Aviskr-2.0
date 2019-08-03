@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+
+import * as Scroll from 'react-scroll';
+import { Link, Element } from 'react-scroll';
+import smoothscroll from "smoothscroll-polyfill";
 
 import fig1 from "../../../images/drone-figures/fig1.png";
 import fig2 from "../../../images/drone-figures/fig2.png";
@@ -9,8 +12,12 @@ import fig4 from "../../../images/drone-figures/fig4.png";
 import poster from "../../../images/Hero/drone-full.jpg";
 
 
+
+
 const DroneWarsArticle = () => {
-  
+
+  smoothscroll.polyfill();
+
   
 
   const Div = styled.div`
@@ -59,6 +66,8 @@ const DroneWarsArticle = () => {
         .section-title{
           font-size: 4rem;
           margin:0;
+          line-height: 1.5;
+          margin-bottom: 2rem;
         }
 
         .section-title-sub{
@@ -80,19 +89,28 @@ const DroneWarsArticle = () => {
             font-style: italic;
           }
 
-          h3{
+          .heading{
             border-bottom: 2px solid #000;
+            margin-top: 8rem;
+          }
+
+          div{
+            p{
+              .italic{
+                font-style: italic
+              }
+            }
           }
 
           .figures{
-            margin-bottom: 4rem;
+            margin: 6rem 0;
             img{
               width: 100%;
               height: 100%;
             }
 
             span{
-              font-size: 1.2rem;
+              font-size: 1rem;
             }
           }
         }
@@ -109,6 +127,7 @@ const DroneWarsArticle = () => {
 
           a{
             margin-bottom: 1rem;
+            cursor: pointer;
           }
         }
       }
@@ -142,17 +161,17 @@ const DroneWarsArticle = () => {
               font-size: 1.15rem;
             }
   
-            h3{
+            .heading{
 
             }
   
             .figures{
-              margin-top: 2rem;
               img{
                 
               }
   
               span{
+                font-size: 0.8rem;
               }
             }
           }
@@ -168,12 +187,12 @@ const DroneWarsArticle = () => {
       </div>
       <section className="subtitle-btns">
         <div>
-          <a href="#history-of-drones" className="shortcut-btn">History of Drones</a>
-          <a href="#military-capacity" className="shortcut-btn">Military Capacity</a>
-          <a href="#us-drone-policy" className="shortcut-btn">U.S. Drone Policy</a>
-          <a href="#legal-ramifications" className="shortcut-btn">Legal Ramifications</a>
-          <a href="#obama" className="shortcut-btn">Obama And Trump</a>
-          <a href="#conclusion" className="shortcut-btn">Conclusion</a>
+          <Link to="history-of-drones" smooth={true} offset={-100} duration={500} className="shortcut-btn">History of Drones</Link>
+          <Link to="military-capacity" smooth={true} offset={-100} duration={500} className="shortcut-btn">Military Capacity</Link>
+          <Link to="us-drone-policy" smooth={true} offset={-100} duration={500} className="shortcut-btn">U.S. Drone Policy</Link>
+          <Link to="legal-ramifications" smooth={true} offset={-100} duration={500} className="shortcut-btn">Legal Ramifications</Link>
+          <Link to="obama" smooth={true} offset={-100} duration={500} className="shortcut-btn">Obama And Trump</Link>
+          <Link to="conclusion" smooth={true} offset={50} duration={500} className="shortcut-btn">Conclusion</Link>
         </div>
       </section>
       <article className="container drone-article">
@@ -198,7 +217,7 @@ const DroneWarsArticle = () => {
           <div className="drone-article-text">
             <div>
               <div id="article-advice">
-                For full, interactive panels of our data, refer to the dashboard found <Link to="/dronewars/data">Here</Link>. The following piece is an objective
+                For full, interactive panels of our data, refer to the associated dashboard. The following piece is an objective
                 analysis from said data. We strongly advise you to form your
                 conclusions based on both the investigation below and the original
                 datasets.
@@ -257,7 +276,7 @@ const DroneWarsArticle = () => {
               </div>
             </div>
             <div>
-              <h3 id="history-of-drones">History Of Drones</h3>
+              <Element name="history-of-drones" className="heading">History Of Drones</Element>
               <div>
                 <p>
                   In both a military and technological sense, a drone is an
@@ -291,7 +310,7 @@ const DroneWarsArticle = () => {
               </div>
             </div>
             <div>
-              <h3 id="military-capacity">Military Capacity</h3>
+              <Element name="military-capacity" className="heading">Military Capacity</Element>
               <div>
                 <p>
                   Sixteen years after the Wright brothers’ profound breakthrough
@@ -317,7 +336,7 @@ const DroneWarsArticle = () => {
               </div>
             </div>
             <div>
-              <h3 id="us-drone-policy">U.S Drone Policy</h3>
+              <Element name="us-drone-policy" className="heading">U.S Drone Policy</Element>
               <div>
                 <p>
                   U.S. drone legislation currently in place is somewhat guided by
@@ -358,7 +377,7 @@ const DroneWarsArticle = () => {
               </div>
             </div>
             <div>
-              <h3 id="legal-ramifications">Legal Ramifications</h3>
+              <Element name="legal-ramifications" className="heading">Legal Ramifications</Element>
               <div>
                 <p>
                   With respect to legalities, drones are governed under the same
@@ -439,7 +458,7 @@ const DroneWarsArticle = () => {
               </div>
             </div>
             <div>
-              <h3 id="obama">Obama And Trump</h3>
+              <Element name="obama" className="heading">Obama And Trump</Element>
               <div>
                 <div className="figures">
                   <img src={fig2} alt="Figure 2" />
@@ -579,7 +598,7 @@ const DroneWarsArticle = () => {
               </div>
             </div>
             <div>
-              <h3 id="conclusion">Conclusion</h3>
+              <Element name="conclusion" className="heading">Conclusion</Element>
               <div>
                 <p>
                   The first year of the Trump administration demonstrated

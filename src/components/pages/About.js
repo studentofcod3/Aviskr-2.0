@@ -11,6 +11,13 @@ const About = () => {
       font-size: 1.4rem;
       background: #fff;
     }
+
+    @media (max-width: 768px) {
+      div {
+        margin: 0 2rem;
+        padding: 8rem 2rem 6rem 2rem;
+      }
+    }
   `;
   return (
     <About>

@@ -30,9 +30,10 @@ const Story1 = () => {
       }
 
       .content-container {
-        padding: 0 2rem 1rem 2rem;
-
-        .container {
+        padding: 0 1rem 1rem 1rem;
+        width: 100%;
+        margin: 0 auto;
+        .heading-container {
           padding: 0.5rem 0;
           display: flex;
           justify-content: space-between;
@@ -62,7 +63,7 @@ const Story1 = () => {
             <img src={Hero} alt='Drone Wars Article' />
           </div>
           <div className='content-container'>
-            <div className='container'>
+            <div className='heading-container'>
               <span className='title'>Drone Wars</span>
               <span className='badge'>Article</span>
             </div>
@@ -77,7 +78,7 @@ const Story1 = () => {
             <img src={Data} alt='Drone Wars Data' />
           </div>
           <div className='content-container'>
-            <div className='container'>
+            <div className='heading-container'>
               <span className='title'>Drone Wars</span>
               <span className='badge'>Data</span>
             </div>

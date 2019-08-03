@@ -9,13 +9,16 @@ const Footer = () => {
     text-align: left;
     background: #fff;
     padding-top: 2rem;
-    .container {
+    .footer-container {
       display: grid;
       grid-gap: 0.5rem;
       grid-template-columns: repeat(3, 1fr);
       padding: 1.4rem;
-      span {
+
+      .aviskr {
+        font-family: "Cinzel Decorative", cursive;
         font-size: 2.7rem;
+        color: #000;
       }
 
       div {
@@ -28,7 +31,6 @@ const Footer = () => {
           li {
             ul {
               padding-left: 0.7rem;
-
               a {
               }
             }
@@ -39,12 +41,15 @@ const Footer = () => {
 
     @media (max-width: 768px) {
       text-align: center;
-      .container {
+      .footer-container {
         display: flex;
         flex-direction: column;
 
-        span {
+        .aviskr {
+          font-family: "Cinzel Decorative", cursive;
           font-size: 2.7rem;
+          color: #000;
+          margin-bottom: 1.5rem;
         }
 
         .quick-links {
@@ -68,7 +73,7 @@ const Footer = () => {
   `;
   return (
     <Footer>
-      <div className='container'>
+      <div className='footer-container'>
         <span className='aviskr'>Aviskr</span>
         <div>
           <h3>Contact</h3>
