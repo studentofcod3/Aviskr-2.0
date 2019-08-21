@@ -1,8 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Hero from "../../../../images/Hero/drone.jpg";
+
+import Hero from "../../../../images/droneWarfare/Hero/drone.jpg";
+import HeroMin from "../../../../images/droneWarfare/Hero/drone-min.jpg";
 import Data from "../../../../images/story1/dashboard2.jpg";
+import DataMin from "../../../../images/story1/dashboard2-min.jpg";
+
+import Image from "../../../Utilities/Image";
 
 const Story1 = () => {
   const Div = styled.div`
@@ -59,9 +64,7 @@ const Story1 = () => {
     <div>
       <Div>
         <div id='Story1Container'>
-          <div className='image-container'>
-            <img src={Hero} alt='Drone Wars Article' />
-          </div>
+          <div className='image-container'>{Image(Hero, HeroMin, "7rem")}</div>
           <div className='content-container'>
             <div className='heading-container'>
               <span className='title'>Drone Wars</span>
@@ -75,14 +78,19 @@ const Story1 = () => {
       <Div>
         <div id='Story1Container'>
           <div className='image-container'>
-            <img src={Data} alt='Drone Wars Data' />
+            {/* <img src={Data} alt='Drone Wars Data' /> */}
+            {Image(Data, DataMin, "15rem")}
           </div>
           <div className='content-container'>
             <div className='heading-container'>
               <span className='title'>Drone Wars</span>
               <span className='badge'>Data</span>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+            <p>
+              Interactive panels with visualisations make it easy to browse
+              through the relevant statistics and comparisons, allowing you to
+              draw informed conclusions
+            </p>
             <Link to='/dronewars/data'>Observe Data</Link>
           </div>
         </div>

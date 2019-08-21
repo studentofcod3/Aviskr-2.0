@@ -2,8 +2,12 @@ import React from "react";
 import Carousel from "react-bootstrap/Carousel";
 import { Link } from "react-router-dom";
 
-import slide1 from "../../../../../images/Hero/hero-phone-2.jpg";
+import slide1 from "../../../../../images/droneWarfare/Hero/hero-phone.jpg";
+import slide1min from "../../../../../images/droneWarfare/Hero/hero-phone-min.jpg";
+import Image from "../../../../Utilities/Image";
+
 import slide2 from "../../../../../images/story1/dashboard.JPG";
+import slide2min from "../../../../../images/story1/dashboard-min.JPG";
 
 import "../../../../../bootstrap/bootstrap-4.3.1-dist/css/bootstrap.css";
 
@@ -20,6 +24,7 @@ const SlideShow = () => {
     position: relative;
     z-index: 0;
     overflow: hidden;
+    display: flex;
 
     // Setting carousel indicators to circular
     .carousel-indicators {
@@ -40,6 +45,8 @@ const SlideShow = () => {
       .image-container {
         margin: 0;
         padding: 0;
+        width: 100%;
+        height: auto;
         img {
           margin: 0;
           padding: 0;
@@ -103,7 +110,7 @@ const SlideShow = () => {
           <Carousel.Item>
             <div id='carousel-item'>
               <div className='image-container'>
-                <img src={slide1} alt='First slide' />
+                {Image(slide1, slide1min, "14rem")}
               </div>
               <div className='content-container'>
                 <div className='container'>
@@ -123,7 +130,8 @@ const SlideShow = () => {
           <Carousel.Item>
             <div id='carousel-item'>
               <div className='image-container'>
-                <img src={slide2} alt='Second slide' />
+                {/* <img src={slide2} alt='Second slide' /> */}
+                {Image(slide2, slide2min, "14rem")}
               </div>
               <div className='content-container'>
                 <div className='container'>
@@ -131,8 +139,9 @@ const SlideShow = () => {
                   <div className='badge'>Data</div>
                 </div>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Accusamus labore, ut animi modi natus minima excepturi dolorem
+                  Interactive panels with visualisations make it easy to browse
+                  through the relevant statistics and comparisons, allowing you
+                  to draw informed conclusions
                 </p>
                 <div className='link-container'>
                   <Link to='/dronewars/data'>Observe the data</Link>

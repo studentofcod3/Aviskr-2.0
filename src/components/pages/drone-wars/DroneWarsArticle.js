@@ -1,15 +1,18 @@
 import React from 'react';
 import styled from "styled-components";
 
-import * as Scroll from 'react-scroll';
 import { Link, Element } from 'react-scroll';
 import smoothscroll from "smoothscroll-polyfill";
 
-import fig1 from "../../../images/drone-figures/fig1.png";
-import fig2 from "../../../images/drone-figures/fig2.png";
-import fig3 from "../../../images/drone-figures/fig3.png";
-import fig4 from "../../../images/drone-figures/fig4.png";
-import poster from "../../../images/Hero/drone-full.jpg";
+import fig1 from "../../../images/droneWarfare/drone-figures/fig1.png";
+import fig2 from "../../../images/droneWarfare/drone-figures/fig2.png";
+import fig3 from "../../../images/droneWarfare/drone-figures/fig3.png";
+import fig4 from "../../../images/droneWarfare/drone-figures/fig4.png";
+import poster from "../../../images/droneWarfare/Hero/drone-full.jpg";
+import posterMin from "../../../images/droneWarfare/Hero/drone-full-min.jpg";
+
+import Image from "../../Utilities/Image";
+import FloatingBtn from "../../Utilities/FloatingBtn";
 
 
 
@@ -19,6 +22,42 @@ const DroneWarsArticle = () => {
   smoothscroll.polyfill();
 
   
+
+  // let Display = null;
+
+  // const scrollTo = () => {
+  //   scroll.scrollTo(100);
+  // };
+
+//   const ShowScrollTop = (Display) => {
+//     const articleBeginning = document.getElementById('introduction');
+//     const articleBeginningTop = articleBeginning.offsetTop;
+  
+//     if(window.scrollY > articleBeginningTop ) {
+//       Display = "block";
+//       console.log('more');
+//     }else{
+//       Display = "none";
+//       console.log('less');
+//     }
+// }
+
+  
+
+  // const ScrollBtn = styled.a`
+  //   display: ${display};
+  //   position: fixed;
+  //   bottom: 0.4rem;
+  //   left: 0.4rem;
+  //   background: #000;
+  //   color: #fff !important;
+  //   padding: 0.5rem 0.7rem;
+  //   border-radius: 0.4rem;
+  //   opacity: 0.8;
+  // `;
+
+  // window.addEventListener("scroll", ShowScrollTop);
+
 
   const Div = styled.div`
     .image-container{
@@ -39,7 +78,7 @@ const DroneWarsArticle = () => {
 
         a{
           color: #fff;
-          // padding: 0.4rem;
+          line-height: 1.5;
           :hover{
             color: yellow;
             
@@ -92,6 +131,7 @@ const DroneWarsArticle = () => {
           .heading{
             border-bottom: 2px solid #000;
             margin-top: 8rem;
+            margin-bottom: 1.3rem;
           }
 
           div{
@@ -126,7 +166,7 @@ const DroneWarsArticle = () => {
           align-items: center;
 
           a{
-            margin-bottom: 1rem;
+            margin: 0.5rem;
             cursor: pointer;
           }
         }
@@ -182,8 +222,10 @@ const DroneWarsArticle = () => {
 
   return (
     <Div>
+      {/* <ScrollBtn onClick={scrollTo}>T</ScrollBtn> */}
+      {FloatingBtn()}
       <div className="image-container">
-        <img src={poster} alt="Drone Wars"/>
+        {Image(poster, posterMin, "92vh")}
       </div>
       <section className="subtitle-btns">
         <div>

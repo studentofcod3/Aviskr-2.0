@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Hero from "../../../../../images/Hero/drone-thumbnail.gif";
+import Hero from "../../../../../images/droneWarfare/Hero/hero-desktop.gif";
 
 const FullscreenGif = () => {
   const Div = styled.div`
