@@ -11,25 +11,14 @@ const Navbar = () => {
     document.getElementById("checkbox").checked = false;
   };
 
-  // Implementing sticky NAVIGATION
-  const stickyNav = () => {
-    // Grab nav element and set a const on the offsetTop
-    const nav = document.getElementById("Navigation");
-    const navTop = nav.offsetTop;
-
-    if (window.scrollY > navTop) {
-      nav.classList.add("fixed-nav");
-    } else {
-      nav.classList.remove("fixed-nav");
-    }
-  };
-
-  // Add scroll event listener to the window
-  window.addEventListener("scroll", stickyNav);
-
   // Styling
   const Navigation = styled.div`
+    height: 3rem;
     #Navigation {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
       box-sizing: border-box;
       border: solid 2px #222;
       background: #fff;
@@ -43,6 +32,162 @@ const Navbar = () => {
         justify-content: space-between;
         align-items: center;
 
+        .aviskr {
+          text-decoration: none;
+
+          &:hover {
+            transition: all ease-in 0.1s;
+            border-bottom: none;
+            color: #555;
+          }
+        }
+
+        // FOR MOBILE
+        .menu-wrap {
+          position: fixed;
+          top: 0;
+          right: 0;
+          z-index: 1;
+
+          // MENU
+          .menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            visibility: hidden;
+            overflow: hidden;
+
+            .overlay {
+              background: #ffd700;
+              padding: 0;
+
+              div {
+                width: 100vw;
+                height: 100vh;
+                opacity: 0;
+                transition: opacity 3s ease;
+
+                ul {
+                  display: flex;
+                  justify-content: center;
+                  text-align: center;
+                  margin: 0 1rem;
+                  padding: 0 1rem;
+                  height: 100%;
+
+                  li {
+                    list-style: none;
+                    font-size: 2.5rem;
+                    margin: 1.4rem 0;
+
+                    a {
+                      text-decoration: none;
+
+                      &:hover {
+                        transition: all ease-in 0.1s;
+                        border-bottom: none;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .toggler {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            opacity: 0;
+          }
+
+          /* Toggler Animation */
+          /* This rotates everything by 135deg. The middle line is now in the position we want */
+          .toggler:checked + .hamburger > div {
+            transform: rotate(135deg);
+          }
+
+          /* On checked event, we want menu visibility from hidden to visible, the first div within to scale up, second div to become opacity 1 */
+          /* Show Menu */
+          .toggler:checked ~ .menu {
+            visibility: visible;
+          }
+
+          .toggler:checked ~ .menu > div {
+            transform: scale(1);
+            transition-duration: var($menu-speed);
+          }
+
+          .toggler:checked ~ .menu > div > div {
+            opacity: 1;
+            /* This makes the list items show after a moment */
+            transition: opacity 0.4s ease 0.4s;
+          }
+
+          /* Turns Lines Into X */
+          /* The before and after line will be rotated a FURTHER 90deg to make it so that we have an x */
+          .toggler:checked + .hamburger > div:before,
+          .toggler:checked + .hamburger > div:after {
+            top: 0;
+            transform: rotate(90deg);
+          }
+
+          /* Rotate on Hover when checked */
+          .toggler:checked:hover + .hamburger > div {
+            transform: rotate(225deg);
+          }
+
+          .hamburger {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            width: 40px;
+            height: 50px;
+            padding-right: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            /* Middle Hamburger Line */
+            & > div {
+              position: relative;
+              flex: none;
+              width: 100%;
+              height: 1.5px;
+              background: #222;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: all 0.4s ease;
+            }
+          }
+
+          /* Hamburger Lines- top and bottom */
+          .hamburger > div:before,
+          .hamburger > div:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: -10px;
+            width: 100%;
+            height: 1.5px;
+            background: inherit;
+          }
+
+          /* Moves 1 line below middle line  */
+          .hamburger > div:after {
+            top: 10px;
+          }
+        }
+
+        // FOR DESKTOP
         ul {
           display: flex;
           margin: 0;
@@ -61,6 +206,26 @@ const Navbar = () => {
                 color: $navbar-hover-color !important;
                 border-bottom: solid 1px #111;
               }
+            }
+          }
+        }
+      }
+    }
+    @media (max-width: 767px) {
+      #Navigation {
+        .container {
+          .aviskr {
+            padding: 0.2rem;
+          }
+
+          ul {
+            display: flex;
+            flex-direction: column;
+            margin-right: 100%;
+
+            li,
+            span {
+              padding: 1rem;
             }
           }
         }

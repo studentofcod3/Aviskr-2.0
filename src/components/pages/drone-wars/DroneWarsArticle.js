@@ -63,6 +63,7 @@ const DroneWarsArticle = () => {
     .image-container{
       background: #000;
       overflow: hidden;
+      height: 92vh;
       img{
         height: auto;
         width: 100%;
@@ -225,7 +226,7 @@ const DroneWarsArticle = () => {
       {/* <ScrollBtn onClick={scrollTo}>T</ScrollBtn> */}
       {FloatingBtn()}
       <div className="image-container">
-        {Image(poster, posterMin, "92vh")}
+        {Image(poster, posterMin, "100%")}
       </div>
       <section className="subtitle-btns">
         <div>
