@@ -5,6 +5,7 @@ import "../App.scss";
 
 const Footer = () => {
   const Footer = styled.div`
+    border: 2px solid #000;
     box-sizing: border-box;
     text-align: left;
     background: #fff;

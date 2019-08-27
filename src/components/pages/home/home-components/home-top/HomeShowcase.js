@@ -6,7 +6,7 @@ import DesktopShowcase from "./DesktopShowcase";
 
 const HomeShowcase = () => {
   const Div = styled.div`
-    height: 100vh;
+    height: 100%;
     position: relative;
     border: solid 2px black;
     border-top: none;

@@ -14,7 +14,12 @@ const Story1 = () => {
     background: #ffd700;
     margin: 0;
     padding: 1rem 0;
-    #Story1Container {
+    border: 2px solid #000;
+    border-bottom: none;
+    border-top: none;
+
+    #Story1Container,
+    #Story2Container {
       border: solid 2px #000;
       border-radius: 4px;
       display: flex;
@@ -64,7 +69,10 @@ const Story1 = () => {
     <div>
       <Div>
         <div id='Story1Container'>
-          <div className='image-container'>{Image(Hero, HeroMin, "7rem")}</div>
+          <div className='image-container'>
+            {Image(Hero, HeroMin, "7rem")}
+            {/* <img src={Hero} alt='Drone Wars Article' /> */}
+          </div>
           <div className='content-container'>
             <div className='heading-container'>
               <span className='title'>Drone Wars</span>
@@ -76,7 +84,7 @@ const Story1 = () => {
         </div>
       </Div>
       <Div>
-        <div id='Story1Container'>
+        <div id='Story2Container'>
           <div className='image-container'>
             {/* <img src={Data} alt='Drone Wars Data' /> */}
             {Image(Data, DataMin, "15rem")}

@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 
 import slide1 from "../../../../../images/droneWarfare/Hero/hero-phone.jpg";
 import slide1min from "../../../../../images/droneWarfare/Hero/hero-phone-min.jpg";
-import Image from "../../../../Utilities/Image";
-
 import slide2 from "../../../../../images/story1/dashboard.JPG";
 import slide2min from "../../../../../images/story1/dashboard-min.JPG";
 
+import Image from "../../../../Utilities/Image";
 import "../../../../../bootstrap/bootstrap-4.3.1-dist/css/bootstrap.css";
 
 import "../../../../../App.scss";
@@ -18,7 +17,7 @@ const SlideShow = () => {
   const Div = styled.div`
     margin-bottom: 0;
     box-sizing: border-box;
-    height: 100%;
+    height: 90vh;
     width: 100%;
     background: #fff;
     position: relative;
@@ -86,18 +85,59 @@ const SlideShow = () => {
         .link-container {
           padding: 1rem;
           padding-left: 0;
+          padding-top: 0;
         }
       }
     }
 
     @media (max-width: 350px) {
       #carousel-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+
         .image-container {
-          margin-bottom: 0;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: auto;
+          img {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: auto;
+          }
         }
 
         .content-container {
-          margin: 0.4rem;
+          padding: 1rem;
+
+          .container {
+            h3 {
+              font-size: 1.5rem;
+            }
+
+            .badge {
+              background: #000;
+              color: #fff;
+              align-self: flex-start;
+              margin-top: 0.6rem;
+              margin-right: 0.4rem;
+              padding: 0.4rem;
+            }
+          }
+
+          p {
+            padding: 0;
+            font-size: 1rem;
+          }
+
+          .link-container {
+            font-size: 1rem;
+            padding: 0rem;
+            padding-bottom: 1rem;
+          }
         }
       }
     }

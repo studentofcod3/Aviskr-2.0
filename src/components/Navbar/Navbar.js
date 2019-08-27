@@ -11,6 +11,10 @@ const Navbar = () => {
     document.getElementById("checkbox").checked = false;
   };
 
+  window.setTimeout(() => {
+    document.getElementById("aviskr").style.opacity = "1";
+  }, 10);
+
   // Styling
   const Navigation = styled.div`
     height: 3rem;
@@ -32,7 +36,9 @@ const Navbar = () => {
         justify-content: space-between;
         align-items: center;
 
-        .aviskr {
+        #aviskr {
+          transition: opacity 2s ease-in;
+          opacity: 0;
           text-decoration: none;
 
           &:hover {
@@ -67,7 +73,6 @@ const Navbar = () => {
                 width: 100vw;
                 height: 100vh;
                 opacity: 0;
-                transition: opacity 3s ease;
 
                 ul {
                   display: flex;
@@ -240,7 +245,7 @@ const Navbar = () => {
           {matches =>
             matches ? (
               <div className='container'>
-                <Link to='/' className='aviskr'>
+                <Link to='/' id='aviskr'>
                   Aviskr
                 </Link>
                 <div className='menu-wrap'>
@@ -276,7 +281,7 @@ const Navbar = () => {
               </div>
             ) : (
               <div className='container'>
-                <Link to='/' className='aviskr'>
+                <Link to='/' id='aviskr'>
                   Aviskr
                 </Link>
                 <ul>

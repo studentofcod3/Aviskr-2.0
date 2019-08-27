@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { animateScroll as scroll } from "react-scroll";
 
@@ -14,7 +14,8 @@ const FloatingBtn = () => {
     scroll.scrollTo(0);
   };
 
-  window.onscroll = () => {
+  // window.onscroll = () => {
+  useEffect(() => {
     if (
       document.body.scrollTop < 1500 ||
       document.documentElement.scrollTop < 1500
@@ -32,29 +33,30 @@ const FloatingBtn = () => {
         display: "block",
         opacity: "0.2"
       });
-
-      if (
-        document.body.scrollTop > 1600 ||
-        document.documentElement.scrollTop > 1600
-      ) {
-        setButtonState({ opacity: "0.4" });
-      }
-
-      if (
-        document.body.scrollTop > 1700 ||
-        document.documentElement.scrollTop > 1700
-      ) {
-        setButtonState({ opacity: "0.6" });
-      }
-
-      if (
-        document.body.scrollTop > 1800 ||
-        document.documentElement.scrollTop > 1800
-      ) {
-        setButtonState({ opacity: "0.8" });
-      }
     }
-  };
+
+    if (
+      document.body.scrollTop > 1600 ||
+      document.documentElement.scrollTop > 1600
+    ) {
+      setButtonState({ opacity: "0.4" });
+    }
+
+    if (
+      document.body.scrollTop > 1700 ||
+      document.documentElement.scrollTop > 1700
+    ) {
+      setButtonState({ opacity: "0.6" });
+    }
+
+    if (
+      document.body.scrollTop > 1800 ||
+      document.documentElement.scrollTop > 1800
+    ) {
+      setButtonState({ opacity: "0.8" });
+    }
+  });
+  // };
 
   const HeightControl = styled.span`
   #height-control {

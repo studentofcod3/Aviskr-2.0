@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 
 import { Link, Element } from 'react-scroll';
@@ -19,47 +19,91 @@ import FloatingBtn from "../../Utilities/FloatingBtn";
 
 const DroneWarsArticle = () => {
 
+  const [ShortcutBtns, setState] = useState({
+    position: "static",
+    shortcutBtnsDisplay: "flex",
+    shortcutBtnsMinDisplay: "none"
+  })
+
+  const { position, shortcutBtnsDisplay, shortcutBtnsMinDisplay } = ShortcutBtns;
+
   smoothscroll.polyfill();
 
+  // const SubButtons = document.getElementById('subtitle-btns')
+  // useEffect(()=> {
+
+  //   const Sub = SubButtons.offsetTop;
+
+  //   console.log(Sub);
+  //   if (document.body.scrollTop >= Sub){
+  //     console.log('nonstick');
+  //   }else{
+  //     console.log('hey')
+  //   }
+  // },[SubButtons])
+
+  useEffect(()=>{
+    const SubButtons = document.querySelector('#sub-btns-marker');
+  
+    var rect = SubButtons.getBoundingClientRect();
+
+    if(
+        rect.top <= 48 && position === "static"
+        //  &&
+        // rect.left >= 0 &&
+        // rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        // rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    ){
+      setState({
+        position: "fixed", 
+        shortcutBtnsDisplay: "none",
+        shortcutBtnsMinDisplay: "flex"})
+    }
+    
+    if (rect.top > 48) {
+      setState({
+        position: "static",
+        shortcutBtnsDisplay: "flex",
+        shortcutBtnsMinDisplay: "none"
+    })
+    }
+  });
+
+  const toggleShortcuts = () => {
+    if (shortcutBtnsDisplay === "none"){
+      setState({
+        position: "fixed",
+        shortcutBtnsDisplay: "flex",
+        shortcutBtnsMinDisplay: "flex"
+      })
+    }else{
+      setState({
+        shortcutBtnsDisplay: "none",
+        shortcutBtnsMinDisplay: "flex"
+      })
+    }
+  }
+
+  const closeShortcutMenu = () => {
+    if (shortcutBtnsDisplay === "flex"){
+      setState({
+        position: "fixed",
+        shortcutBtnsDisplay: "none",
+        shortcutBtnsMinDisplay: "flex"
+      })
+    }
+  }
+    
   
 
-  // let Display = null;
 
-  // const scrollTo = () => {
-  //   scroll.scrollTo(100);
-  // };
 
-//   const ShowScrollTop = (Display) => {
-//     const articleBeginning = document.getElementById('introduction');
-//     const articleBeginningTop = articleBeginning.offsetTop;
-  
-//     if(window.scrollY > articleBeginningTop ) {
-//       Display = "block";
-//       console.log('more');
-//     }else{
-//       Display = "none";
-//       console.log('less');
-//     }
-// }
-
-  
-
-  // const ScrollBtn = styled.a`
-  //   display: ${display};
-  //   position: fixed;
-  //   bottom: 0.4rem;
-  //   left: 0.4rem;
-  //   background: #000;
-  //   color: #fff !important;
-  //   padding: 0.5rem 0.7rem;
-  //   border-radius: 0.4rem;
-  //   opacity: 0.8;
-  // `;
-
-  // window.addEventListener("scroll", ShowScrollTop);
 
 
   const Div = styled.div`
+    border: solid 2px #000;
+    border-top: none;
+    border-bottom: none;
     .image-container{
       background: #000;
       overflow: hidden;
@@ -69,19 +113,75 @@ const DroneWarsArticle = () => {
         width: 100%;
       }
     }
-    .subtitle-btns{
+    #subtitle-btns{
       background: #000;
-      
-      div{
-        padding: 0.8rem 2rem;
-        display: flex;
+      width: 100%;
+
+      #subtitle-btns-min{
+        display: ${shortcutBtnsMinDisplay};
+        position: fixed;
+        top: 3rem;
+        height: 2rem;
         justify-content: space-around;
+        text-align: center;
+        padding: 0.8rem 2rem;
+        margin: 0;
+        background: #000;
+        width: 100%;
+        
+        button{
+          color: #fff;
+          line-height: 1.5;
+          :hover{
+            color: #ffd700
+          }
+
+          // Middle line
+          
+          background: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.4s ease;
+
+          /* Arrow lines */
+          :before,
+          :after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: 0rem;
+            width: 1.9px;
+            height: 0.7rem;
+            background: inherit;
+          }
+
+          :before {
+            transform: rotate(315deg) translate(-2px, 8px);
+          }
+
+          :after {
+            transform: rotate(45deg) translate(2px, 8px);
+          }
+        }
+        }
+
+      }
+      
+      #subtitle-btns-max{
+        display: ${shortcutBtnsDisplay};
+        padding: 0.8rem 2rem;
+        justify-content: space-around;
+        position: ${position};
+        top: 5rem;
+        background: #000;
+        width: 100%;
 
         a{
           color: #fff;
           line-height: 1.5;
           :hover{
-            color: yellow;
+            color: #ffd700;
             
           }
         }
@@ -160,7 +260,7 @@ const DroneWarsArticle = () => {
     }
 
     @media (max-width: 768px){
-      .subtitle-btns{
+      #subtitle-btns{
         overflow: hidden;
         div{
           flex-direction: column;
@@ -228,14 +328,18 @@ const DroneWarsArticle = () => {
       <div className="image-container">
         {Image(poster, posterMin, "100%")}
       </div>
-      <section className="subtitle-btns">
-        <div>
-          <Link to="history-of-drones" smooth={true} offset={-100} duration={500} className="shortcut-btn">History of Drones</Link>
-          <Link to="military-capacity" smooth={true} offset={-100} duration={500} className="shortcut-btn">Military Capacity</Link>
-          <Link to="us-drone-policy" smooth={true} offset={-100} duration={500} className="shortcut-btn">U.S. Drone Policy</Link>
-          <Link to="legal-ramifications" smooth={true} offset={-100} duration={500} className="shortcut-btn">Legal Ramifications</Link>
-          <Link to="obama" smooth={true} offset={-100} duration={500} className="shortcut-btn">Obama And Trump</Link>
-          <Link to="conclusion" smooth={true} offset={50} duration={500} className="shortcut-btn">Conclusion</Link>
+      <span id="sub-btns-marker"></span>
+      <section id="subtitle-btns">
+        <div id="subtitle-btns-min"> 
+          <button onClick={toggleShortcuts}></button>
+        </div>
+        <div id="subtitle-btns-max">
+          <Link to="history-of-drones" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>History of Drones</Link>
+          <Link to="military-capacity" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Military Capacity</Link>
+          <Link to="us-drone-policy" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>U.S. Drone Policy</Link>
+          <Link to="legal-ramifications" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Legal Ramifications</Link>
+          <Link to="obama" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Obama And Trump</Link>
+          <Link to="conclusion" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Conclusion</Link>
         </div>
       </section>
       <article className="container drone-article">
