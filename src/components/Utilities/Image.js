@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const Image = (image, placeholder, height) => {
+const Image = (image, placeholder, height, position) => {
   const [loadState, setLoadState] = useState({
     source: placeholder,
     loaded: false
@@ -32,7 +32,7 @@ const Image = (image, placeholder, height) => {
     filter: ${!loaded ? "blur(3px)" : "unset"};
     background: url(${source});
     padding: 0;
-    background-position: 50% 50%;
+    background-position: ${position};
     background-origin: border-box;
     background-size: cover;
 

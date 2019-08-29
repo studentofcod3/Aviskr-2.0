@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -64,13 +64,37 @@ const Story1 = () => {
       }
     }
   `;
+  const [StoryState, setStoryState] = useState({
+    imgHeight1: "7rem",
+    imgHeight2: "20rem"
+  });
+
+  const { imgHeight1, imgHeight2 } = StoryState;
+
+  const maxWidth = window.matchMedia("(max-width: 767px)");
+
+  window.onresize = () => {
+    if (maxWidth.matches) {
+      setStoryState({ imgHeight1: "7rem", imgHeight2: "20rem" });
+    } else {
+      setStoryState({ imgHeight1: "20rem", imgHeight2: "35rem" });
+    }
+  };
+
+  window.onload = () => {
+    if (maxWidth.matches) {
+      setStoryState({ imgHeight1: "7rem", imgHeight2: "15rem" });
+    } else {
+      setStoryState({ imgHeight1: "20rem", imgHeight2: "30rem" });
+    }
+  };
 
   return (
     <div>
       <Div>
         <div id='Story1Container'>
           <div className='image-container'>
-            {Image(Hero, HeroMin, "7rem")}
+            {Image(Hero, HeroMin, imgHeight1, "bottom")}
             {/* <img src={Hero} alt='Drone Wars Article' /> */}
           </div>
           <div className='content-container'>
@@ -87,7 +111,7 @@ const Story1 = () => {
         <div id='Story2Container'>
           <div className='image-container'>
             {/* <img src={Data} alt='Drone Wars Data' /> */}
-            {Image(Data, DataMin, "15rem")}
+            {Image(Data, DataMin, imgHeight2, "bottom")}
           </div>
           <div className='content-container'>
             <div className='heading-container'>

@@ -28,7 +28,7 @@ const Navbar = () => {
       background: #fff;
       height: 3rem;
       padding: 0;
-      z-index: 1;
+      z-index: 5;
 
       .container {
         padding: 0.6rem;
@@ -93,6 +93,7 @@ const Navbar = () => {
                       &:hover {
                         transition: all ease-in 0.1s;
                         border-bottom: none;
+                        color: #444;
                       }
                     }
                   }
@@ -207,11 +208,15 @@ const Navbar = () => {
             a {
               color: #000;
               &:hover {
-                transition: all ease-in 0.1s;
-                color: $navbar-hover-color !important;
-                border-bottom: solid 1px #111;
+                transition: color 0.7s;
+                color: #ffd700;
+                text-decoration: none;
               }
             }
+          }
+
+          span {
+            cursor: default;
           }
         }
       }
@@ -241,7 +246,7 @@ const Navbar = () => {
   return (
     <Navigation>
       <div id='Navigation'>
-        <Media query='(max-width: 768px)'>
+        <Media query='(max-width: 767px)'>
           {matches =>
             matches ? (
               <div className='container'>

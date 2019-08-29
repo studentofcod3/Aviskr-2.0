@@ -25,73 +25,89 @@ const SlideShow = () => {
     overflow: hidden;
     display: flex;
 
-    // Setting carousel indicators to circular
-    .carousel-indicators {
+    ol{
+      width: 100%;
+      margin: 0;
+      
       li {
-        width: 10px;
-        height: 10px;
+        width: 5%;
+        height: 5%;
+        border: 1px solid #ffd700;
         border-radius: 100%;
       }
     }
 
-    // Stacking Carousel Items
-    #carousel-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0;
+        // Hiding prev and next buttons
+        a{
+          display: none;
+          // margin-bottom: 8rem;
+        }
 
-      .image-container {
-        margin: 0;
+
+      // Stacking Carousel Items
+      #carousel-item-structure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         padding: 0;
-        width: 100%;
-        height: auto;
-        img {
+
+        .image-container {
           margin: 0;
           padding: 0;
           width: 100%;
           height: auto;
-        }
-      }
-
-      .content-container {
-        border-top: solid 1.5px #000;
-        padding: 2rem;
-
-        .container {
-          display: flex;
-          justify-content: space-between;
-          margin: 0;
-          padding: 0;
-          padding-bottom: 0.5rem;
-          h3 {
-          }
-
-          .badge {
-            background: #000;
-            color: #fff;
-            align-self: flex-start;
-            margin-top: 0.6rem;
-            margin-right: 0.4rem;
-            padding: 0.4rem;
+          img {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: auto;
           }
         }
 
-        p {
-          padding: 0.8rem 0;
-          font-size: 1.15rem;
-        }
+        .content-container {
+          border-top: solid 1.5px #000;
+          padding: 2rem;
 
-        .link-container {
-          padding: 1rem;
-          padding-left: 0;
-          padding-top: 0;
+          .container {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            padding: 0;
+            padding-bottom: 0.5rem;
+            h3 {
+            }
+
+            .badge {
+              background: #000;
+              color: #fff;
+              align-self: flex-start;
+              margin-top: 0.6rem;
+              margin-right: 0.4rem;
+              padding: 0.4rem;
+            }
+          }
+
+          p {
+            padding: 0.8rem 0;
+            font-size: 1.15rem;
+          }
+
+          .link-container {
+            padding: 1rem;
+            padding-left: 0;
+            padding-top: 0;
+
+            a{
+              display: block;
+            }
+          }
         }
-      }
+      }         
     }
 
+
     @media (max-width: 350px) {
-      #carousel-item {
+      #carousel-item-structure {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -139,7 +155,6 @@ const SlideShow = () => {
             padding-bottom: 1rem;
           }
         }
-      }
     }
   `;
 
@@ -148,9 +163,9 @@ const SlideShow = () => {
       <div id='HomeTop'>
         <Carousel>
           <Carousel.Item>
-            <div id='carousel-item'>
+            <div id='carousel-item-structure'>
               <div className='image-container'>
-                {Image(slide1, slide1min, "14rem")}
+                {Image(slide1, slide1min, "14rem", "center")}
               </div>
               <div className='content-container'>
                 <div className='container'>
@@ -159,7 +174,7 @@ const SlideShow = () => {
                 </div>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Accusamus labore, ut animi modi natus minima excepturi dolorem
+                  Accusamus labore, ut animi modi
                 </p>
                 <div className='link-container'>
                   <Link to='/dronewars/article'>Read the Article</Link>
@@ -168,10 +183,10 @@ const SlideShow = () => {
             </div>
           </Carousel.Item>
           <Carousel.Item>
-            <div id='carousel-item'>
+            <div id='carousel-item-structure'>
               <div className='image-container'>
                 {/* <img src={slide2} alt='Second slide' /> */}
-                {Image(slide2, slide2min, "14rem")}
+                {Image(slide2, slide2min, "14rem", "top")}
               </div>
               <div className='content-container'>
                 <div className='container'>
@@ -180,8 +195,7 @@ const SlideShow = () => {
                 </div>
                 <p>
                   Interactive panels with visualisations make it easy to browse
-                  through the relevant statistics and comparisons, allowing you
-                  to draw informed conclusions
+                  through the relevant statistics and comparisons
                 </p>
                 <div className='link-container'>
                   <Link to='/dronewars/data'>Observe the data</Link>

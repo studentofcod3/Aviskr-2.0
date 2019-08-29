@@ -19,28 +19,58 @@ import FloatingBtn from "../../Utilities/FloatingBtn";
 
 const DroneWarsArticle = () => {
 
+  // States
+  const [ShowcaseHeight, setShowcaseHeight] = useState({
+    showcaseHeight: "92vh"
+  })
+  const [ShortcutBtnsToggle, setToggleState] = useState({
+    shortcutsClosed: "block",
+    shortcutsOpen: "none"
+  }); 
   const [ShortcutBtns, setState] = useState({
     position: "static",
     shortcutBtnsDisplay: "flex",
     shortcutBtnsMinDisplay: "none"
   })
-
+  
+  // Destructuring
+  const {showcaseHeight} = ShowcaseHeight;
+  const { shortcutsClosed, shortcutsOpen } = ShortcutBtnsToggle;
   const { position, shortcutBtnsDisplay, shortcutBtnsMinDisplay } = ShortcutBtns;
+
 
   smoothscroll.polyfill();
 
-  // const SubButtons = document.getElementById('subtitle-btns')
-  // useEffect(()=> {
+  const maxWidth = window.matchMedia("(max-width: 767px)");
+  const minWidth = window.matchMedia("(min-width: 1024px)");
 
-  //   const Sub = SubButtons.offsetTop;
+  window.onresize = () => {
+    if (maxWidth.matches) {
+      setShowcaseHeight({ showcaseHeight: "92vh"});
+    } else {
+      setShowcaseHeight({ showcaseHeight: "130vh" });
+    }
 
-  //   console.log(Sub);
-  //   if (document.body.scrollTop >= Sub){
-  //     console.log('nonstick');
-  //   }else{
-  //     console.log('hey')
-  //   }
-  // },[SubButtons])
+    if (minWidth.matches){
+      setShowcaseHeight({ showcaseHeight: "150vh" });
+    }
+
+    
+  };
+  
+
+  window.onload = () => {
+    if (maxWidth.matches) {
+      setShowcaseHeight({ showcaseHeight: "92vh"});
+    } else {
+      setShowcaseHeight({ showcaseHeight: "130vh" });
+    }
+
+    if (minWidth.matches){
+      setShowcaseHeight({ showcaseHeight: "150vh" });
+    }
+  };
+
 
   useEffect(()=>{
     const SubButtons = document.querySelector('#sub-btns-marker');
@@ -57,14 +87,15 @@ const DroneWarsArticle = () => {
       setState({
         position: "fixed", 
         shortcutBtnsDisplay: "none",
-        shortcutBtnsMinDisplay: "flex"})
+        shortcutBtnsMinDisplay: "flex",
+        })
     }
     
     if (rect.top > 48) {
       setState({
         position: "static",
         shortcutBtnsDisplay: "flex",
-        shortcutBtnsMinDisplay: "none"
+        shortcutBtnsMinDisplay: "none",
     })
     }
   });
@@ -74,13 +105,26 @@ const DroneWarsArticle = () => {
       setState({
         position: "fixed",
         shortcutBtnsDisplay: "flex",
-        shortcutBtnsMinDisplay: "flex"
-      })
+        shortcutBtnsMinDisplay: "flex",
+      });
+
+      setToggleState({
+        shortcutsClosed: "none",
+        shortcutsOpen: "block"
+      });
+
+
     }else{
       setState({
         shortcutBtnsDisplay: "none",
-        shortcutBtnsMinDisplay: "flex"
-      })
+        shortcutBtnsMinDisplay: "flex",
+      });
+
+      setToggleState({
+        shortcutsClosed: "block",
+        shortcutsOpen: "none"
+      });
+
     }
   }
 
@@ -89,29 +133,28 @@ const DroneWarsArticle = () => {
       setState({
         position: "fixed",
         shortcutBtnsDisplay: "none",
-        shortcutBtnsMinDisplay: "flex"
+        shortcutBtnsMinDisplay: "flex",
+        showcaseHeight
       })
     }
   }
-    
-  
-
-
-
-
 
   const Div = styled.div`
     border: solid 2px #000;
     border-top: none;
     border-bottom: none;
-    .image-container{
-      background: #000;
-      overflow: hidden;
-      height: 92vh;
-      img{
-        height: auto;
-        width: 100%;
+    .showcaseContainer{
+      height: 100%;
+      .image-container{
+        background: #000;
+        overflow: hidden;
+        height: 100%;
+        img{
+          height: auto;
+          width: 100%;
+        }
       }
+
     }
     #subtitle-btns{
       background: #000;
@@ -121,7 +164,7 @@ const DroneWarsArticle = () => {
         display: ${shortcutBtnsMinDisplay};
         position: fixed;
         top: 3rem;
-        height: 2rem;
+        height: 1rem;
         justify-content: space-around;
         text-align: center;
         padding: 0.8rem 2rem;
@@ -130,42 +173,72 @@ const DroneWarsArticle = () => {
         width: 100%;
         
         button{
+          width: 100%;
           color: #fff;
-          line-height: 1.5;
+          // line-height: 1.5;
           :hover{
             color: #ffd700
           }
 
-          // Middle line
-          
-          background: #fff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: all 0.4s ease;
+          .shortcuts-closed{
+            display: ${shortcutsClosed};
+            background: #fff;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            
 
-          /* Arrow lines */
-          :before,
-          :after {
-            content: "";
-            position: absolute;
-            z-index: 1;
-            top: 0rem;
-            width: 1.9px;
-            height: 0.7rem;
-            background: inherit;
+            /* Arrow lines */
+            :before,
+            :after {
+              content: "";
+              position: absolute;
+              z-index: 1;
+              top: 0rem;
+              width: 1.9px;
+              height: 0.7rem;
+              background: inherit;
+            }
+
+            :before {
+              transform: rotate(45deg) translate(6px, 2px);
+            }
+
+            :after {
+              transform: rotate(-45deg) translate(-6px, 2px);
+            }
+
+            
           }
 
-          :before {
-            transform: rotate(315deg) translate(-2px, 8px);
-          }
+          .shortcuts-open{
+            background: #fff;
+            display: ${shortcutsOpen};
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
 
-          :after {
-            transform: rotate(45deg) translate(2px, 8px);
+            /* Arrow lines */
+            :before,
+            :after {
+              content: "";
+              position: absolute;
+              z-index: 1;
+              top: 0.5rem;
+              width: 1.9px;
+              height: 0.7rem;
+              background: inherit;
+            }
+
+            :before {
+              transform: rotate(45deg) translate(-3px, 2px);
+            }
+
+            :after {
+              transform: rotate(-45deg) translate(3px, 2px);
+            }
           }
         }
-        }
-
       }
       
       #subtitle-btns-max{
@@ -173,7 +246,7 @@ const DroneWarsArticle = () => {
         padding: 0.8rem 2rem;
         justify-content: space-around;
         position: ${position};
-        top: 5rem;
+        top: 4rem;
         background: #000;
         width: 100%;
 
@@ -181,8 +254,7 @@ const DroneWarsArticle = () => {
           color: #fff;
           line-height: 1.5;
           :hover{
-            color: #ffd700;
-            
+            // color: #ffd700;
           }
         }
       }
@@ -325,13 +397,21 @@ const DroneWarsArticle = () => {
     <Div>
       {/* <ScrollBtn onClick={scrollTo}>T</ScrollBtn> */}
       {FloatingBtn()}
-      <div className="image-container">
-        {Image(poster, posterMin, "100%")}
+      <div className="showcaseContainer">
+        <div className="image-container">
+          {Image(poster, posterMin, showcaseHeight, "top")}
+        </div>
+
       </div>
       <span id="sub-btns-marker"></span>
       <section id="subtitle-btns">
         <div id="subtitle-btns-min"> 
-          <button onClick={toggleShortcuts}></button>
+          <button onClick={toggleShortcuts} >
+            <div className="shortcuts-open">
+            </div>
+            <div className="shortcuts-closed">
+            </div>
+          </button>
         </div>
         <div id="subtitle-btns-max">
           <Link to="history-of-drones" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>History of Drones</Link>

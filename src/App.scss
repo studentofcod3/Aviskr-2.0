@@ -16,6 +16,11 @@ $head-foot-background-color: #bbb;
 
 a{
   color: #000;
+
+  &:hover{
+    text-decoration: none;
+  }
+
 }
 
 

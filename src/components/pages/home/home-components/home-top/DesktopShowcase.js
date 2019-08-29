@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 import Hero from "../../../../../images/droneWarfare/Hero/hero-desktop.gif";
+import HeroMin from "../../../../../images/droneWarfare/Hero/hero-phone.jpg";
+
+import Image from "../../../../Utilities/Image";
 
 const FullscreenGif = () => {
   const Div = styled.div`
@@ -13,37 +17,58 @@ const FullscreenGif = () => {
       }
 
       .image-container {
-        background: url(${Hero}) center;
         overflow: hidden;
         background-size: cover;
         width: 100%;
-        height: 100%;
+        height: 93vh;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
 
+        .import-container {
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+
         .container {
           width: 100%;
           padding: 2rem;
-          margin-left: 0;
+          margin: 0;
           display: flex;
           flex-direction: column;
           align-items: flex-start;
+          justify-content: flex-end;
 
           h3 {
+            display: inline;
+            // background: #000;
+            padding: 0.2rem 0rem;
+            // border: solid 4px #ffd700;
+            // border-radius: 1rem;
             color: #fff;
+            line-height: 1.7;
+            opacity: 1;
             font-size: 3.5rem;
             margin-bottom: 1.4rem;
+            z-index: 1;
           }
 
-          h6 {
-            display: inline;
-            margin: 0;
-            color: #111;
-            opacity: 0.7;
-            background: #ffd700;
-            font-size: 1.5rem;
-            padding: 0.35rem;
+          .sub-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+
+            h6 {
+              display: inline;
+              margin: 0;
+              color: #111;
+              opacity: 0.7;
+              background: #ffd700;
+              font-size: 1.5rem;
+              padding: 0.35rem;
+            }
           }
         }
       }
@@ -53,12 +78,22 @@ const FullscreenGif = () => {
     <Div>
       <Link to='/dronewars/article'>
         <div className='image-container'>
+          <div className='import-container'>{Image(Hero, HeroMin, "93vh")}</div>
+          <div className='container'>
+            <h3>Drone Warfare</h3>
+            <div className='sub-container'>
+              <h6>A PPG Analysis</h6>
+              <h6>Analysis of Presidential Policy Guideline</h6>
+            </div>
+          </div>
+        </div>
+        {/* <div className='image-container'>
           <div className='container'>
             <h3>Drone Warfare</h3>
             <h6>A PPG Analysis</h6>
             <h6>Analysis of Presidential Policy Guideline</h6>
           </div>
-        </div>
+        </div> */}
       </Link>
     </Div>
   );

@@ -13,7 +13,7 @@ const HomeShowcase = () => {
   `;
   return (
     <Div>
-      <Media query='(max-width:768px)'>
+      <Media query='(max-width:767px)'>
         {matches => (matches ? <MobileShowcase /> : <DesktopShowcase />)}
       </Media>
     </Div>
