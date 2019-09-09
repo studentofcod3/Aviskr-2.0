@@ -7,7 +7,8 @@ import slide1min from "../../../../../images/droneWarfare/Hero/hero-phone-min.jp
 import slide2 from "../../../../../images/story1/dashboard.JPG";
 import slide2min from "../../../../../images/story1/dashboard-min.JPG";
 
-import Image from "../../../../Utilities/Image";
+// import Image3 from "../../../../Utilities/Image3";
+import ReactImageAppear from "react-image-appear";
 import "../../../../../bootstrap/bootstrap-4.3.1-dist/css/bootstrap.css";
 
 import "../../../../../App.scss";
@@ -165,7 +166,13 @@ const SlideShow = () => {
           <Carousel.Item>
             <div id='carousel-item-structure'>
               <div className='image-container'>
-                {Image(slide1, slide1min, "14rem", "center")}
+                {/* {Image3(slide1, slide1min, "100%", "center")} */}
+                <ReactImageAppear
+                  src={slide1}
+                  placeholder={slide1min}
+                  showLoader={false}
+                  animation='blurIn'
+                />
               </div>
               <div className='content-container'>
                 <div className='container'>
@@ -186,7 +193,13 @@ const SlideShow = () => {
             <div id='carousel-item-structure'>
               <div className='image-container'>
                 {/* <img src={slide2} alt='Second slide' /> */}
-                {Image(slide2, slide2min, "14rem", "top")}
+                {/* {Image3(slide2, slide2min, "14rem", "top")} */}
+                <ReactImageAppear
+                  src={slide2}
+                  placeholder={slide2min}
+                  showLoader={false}
+                  animation='blurIn'
+                />
               </div>
               <div className='content-container'>
                 <div className='container'>

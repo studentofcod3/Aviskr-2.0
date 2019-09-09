@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Media from "react-media";
 
@@ -7,13 +7,20 @@ import "./hamburger-menu.scss";
 import styled from "styled-components";
 
 const Navbar = () => {
+  // const [state, setState] = useState({
+  //   opacity: "0.2"
+  // });
+
+  // const { opacity } = state;
+
   const closeOverlay = () => {
     document.getElementById("checkbox").checked = false;
   };
 
   window.setTimeout(() => {
+    // setState({ opacity: "1" });
     document.getElementById("aviskr").style.opacity = "1";
-  }, 10);
+  }, 700);
 
   // Styling
   const Navigation = styled.div`
@@ -108,8 +115,8 @@ const Navbar = () => {
             right: 0;
             z-index: 2;
             cursor: pointer;
-            width: 50px;
-            height: 50px;
+            width: 30px;
+            height: 30px;
             opacity: 0;
           }
 

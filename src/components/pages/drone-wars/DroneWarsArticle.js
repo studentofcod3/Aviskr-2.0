@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 
-import { Link, Element } from 'react-scroll';
+import { Link } from "react-router-dom";
+import { Link as SmoothLink, Element } from 'react-scroll';
 import smoothscroll from "smoothscroll-polyfill";
+
 
 import fig1 from "../../../images/droneWarfare/drone-figures/fig1.png";
 import fig2 from "../../../images/droneWarfare/drone-figures/fig2.png";
@@ -11,7 +13,10 @@ import fig4 from "../../../images/droneWarfare/drone-figures/fig4.png";
 import poster from "../../../images/droneWarfare/Hero/drone-full.jpg";
 import posterMin from "../../../images/droneWarfare/Hero/drone-full-min.jpg";
 
-import Image from "../../Utilities/Image";
+// import Image3 from "../../Utilities/Image3";
+// import Image2 from "../../Utilities/Image2";
+import ReactImageAppear from "react-image-appear";
+
 import FloatingBtn from "../../Utilities/FloatingBtn";
 
 
@@ -19,19 +24,31 @@ import FloatingBtn from "../../Utilities/FloatingBtn";
 
 const DroneWarsArticle = () => {
 
+
   // States
   const [ShowcaseHeight, setShowcaseHeight] = useState({
     showcaseHeight: "92vh"
-  })
+  });
   const [ShortcutBtnsToggle, setToggleState] = useState({
     shortcutsClosed: "block",
     shortcutsOpen: "none"
   }); 
-  const [ShortcutBtns, setState] = useState({
+  const [ShortcutBtns, setShortcutState] = useState({
     position: "static",
     shortcutBtnsDisplay: "flex",
     shortcutBtnsMinDisplay: "none"
-  })
+  });
+  // const [State, setState] = useState({
+  //   pos: function(){
+  //     const SubButtons = document.querySelector('#sub-btns-marker')
+  
+  //     var rect = SubButtons.getBoundingClientRect()
+      
+  //     return rect
+  //   }
+  // })
+
+  // const { pos } = State;
   
   // Destructuring
   const {showcaseHeight} = ShowcaseHeight;
@@ -44,65 +61,123 @@ const DroneWarsArticle = () => {
   const maxWidth = window.matchMedia("(max-width: 767px)");
   const minWidth = window.matchMedia("(min-width: 1024px)");
 
-  window.onresize = () => {
-    if (maxWidth.matches) {
-      setShowcaseHeight({ showcaseHeight: "92vh"});
-    } else {
-      setShowcaseHeight({ showcaseHeight: "130vh" });
-    }
+  // window.onresize = () => {
+  //   if (maxWidth.matches) {
+  //     setShowcaseHeight({ showcaseHeight: "92vh"});
+  //   } else {
+  //     setShowcaseHeight({ showcaseHeight: "110vh" });
+  //   }
 
-    if (minWidth.matches){
-      setShowcaseHeight({ showcaseHeight: "150vh" });
-    }
-
-    
-  };
+  //   if (minWidth.matches){
+  //     setShowcaseHeight({ showcaseHeight: "130vh" });
+  //   }   
+  // };
   
 
-  window.onload = () => {
-    if (maxWidth.matches) {
-      setShowcaseHeight({ showcaseHeight: "92vh"});
-    } else {
-      setShowcaseHeight({ showcaseHeight: "130vh" });
-    }
+  // window.onload = () => {
+  //   if (maxWidth.matches) {
+  //     setShowcaseHeight({ showcaseHeight: "92vh"});
+  //   } else {
+  //     setShowcaseHeight({ showcaseHeight: "130vh" });
+  //   }
 
-    if (minWidth.matches){
-      setShowcaseHeight({ showcaseHeight: "150vh" });
-    }
-  };
+  //   if (minWidth.matches){
+  //     setShowcaseHeight({ showcaseHeight: "150vh" });
+  //   }
+  // };
 
-
-  useEffect(()=>{
-    const SubButtons = document.querySelector('#sub-btns-marker');
-  
-    var rect = SubButtons.getBoundingClientRect();
-
-    if(
-        rect.top <= 48 && position === "static"
-        //  &&
-        // rect.left >= 0 &&
-        // rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        // rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    ){
-      setState({
-        position: "fixed", 
-        shortcutBtnsDisplay: "none",
-        shortcutBtnsMinDisplay: "flex",
-        })
-    }
+  // const scrollEvent = e => {
+  //   // console.log("scroll");
+  //   e.preventDefault();
     
-    if (rect.top > 48) {
-      setState({
-        position: "static",
-        shortcutBtnsDisplay: "flex",
-        shortcutBtnsMinDisplay: "none",
-    })
-    }
-  });
+  //   setShortcutState({
+  //     position: "static",
+  //     shortcutBtnsDisplay: "none",
+  //     shortcutBtnsMinDisplay: "flex"
+  //   });
+    
+  //   setToggleState({
+  //     shortcutsClosed: "block",
+  //     shortcutsOpen: "none"
+  //   }); 
+    
+  //   const SubButtons = document.querySelector('#sub-btns-marker');
+
+  //   const Div = document.querySelector('#DroneWars');
+
+  //   Div.addEventListener("scroll", scrollEvent);
+    
+  //   var rect = SubButtons.getBoundingClientRect();
+
+  //   if(
+  //           rect.top <= 48 && position === "static"
+  //           //  &&
+  //           // rect.left >= 0 &&
+  //           // rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+  //           // rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  //       ){
+  //         setShortcutState({
+  //           position: "fixed", 
+  //           shortcutBtnsDisplay: "none",
+  //           shortcutBtnsMinDisplay: "flex",
+  //           })
+  //       }
+        
+  //       if (rect.top > 48) {
+  //         setShortcutState({
+  //           position: "static",
+  //           shortcutBtnsDisplay: "flex",
+  //           shortcutBtnsMinDisplay: "none",
+  //       })
+  //       }
+
+  //   window.removeEventListener('scroll', scrollEvent);
+  // }
+
+  
+  // useEffect(()=>{
+
+  //     // const scroll = () => {
+  //     //   const SubButtons = document.querySelector('#sub-btns-marker');
+  
+        
+  //     //   SubButtons.addEventListener("scroll", scrollEvent);
+  //     // }
+
+  //     window.addEventListener('scroll', scrollEvent);
+
+
+
+  //   //   if(
+  //   //       rect.top <= 48 && position === "static"
+  //   //       //  &&
+  //   //       // rect.left >= 0 &&
+  //   //       // rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+  //   //       // rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  //   //   ){
+  //   //     setShortcutState({
+  //   //       position: "fixed", 
+  //   //       shortcutBtnsDisplay: "none",
+  //   //       shortcutBtnsMinDisplay: "flex",
+  //   //       })
+  //   //   }
+    
+  //   //   if (rect.top > 48) {
+  //   //     setShortcutState({
+  //   //       position: "static",
+  //   //       shortcutBtnsDisplay: "flex",
+  //   //       shortcutBtnsMinDisplay: "none",
+  //   //     })
+  //   //   }
+
+  //   // window.removeEventListener('scroll', scrollEvent);
+
+
+  // },[]);
 
   const toggleShortcuts = () => {
     if (shortcutBtnsDisplay === "none"){
-      setState({
+      setShortcutState({
         position: "fixed",
         shortcutBtnsDisplay: "flex",
         shortcutBtnsMinDisplay: "flex",
@@ -115,7 +190,7 @@ const DroneWarsArticle = () => {
 
 
     }else{
-      setState({
+      setShortcutState({
         shortcutBtnsDisplay: "none",
         shortcutBtnsMinDisplay: "flex",
       });
@@ -130,7 +205,7 @@ const DroneWarsArticle = () => {
 
   const closeShortcutMenu = () => {
     if (shortcutBtnsDisplay === "flex"){
-      setState({
+      setShortcutState({
         position: "fixed",
         shortcutBtnsDisplay: "none",
         shortcutBtnsMinDisplay: "flex",
@@ -143,19 +218,25 @@ const DroneWarsArticle = () => {
     border: solid 2px #000;
     border-top: none;
     border-bottom: none;
+
     .showcaseContainer{
-      height: 100%;
+      height: 110vh;
+      width: auto;
+
       .image-container{
         background: #000;
-        overflow: hidden;
+        width: auto;
         height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+
         img{
-          height: auto;
-          width: 100%;
+          height: 100%;
         }
       }
-
     }
+
     #subtitle-btns{
       background: #000;
       width: 100%;
@@ -167,21 +248,20 @@ const DroneWarsArticle = () => {
         height: 1rem;
         justify-content: space-around;
         text-align: center;
-        padding: 0.8rem 2rem;
+        padding: 0;
         margin: 0;
         background: #000;
         width: 100%;
         
-        button{
+        #button{
           width: 100%;
-          color: #fff;
-          // line-height: 1.5;
+          height: 100%;
+          
           :hover{
-            color: #ffd700
+            cursor: auto;
           }
 
-          .shortcuts-closed{
-            display: ${shortcutsClosed};
+          .shortcuts-open, .shortcuts-closed{
             background: #fff;
             align-items: center;
             justify-content: center;
@@ -194,41 +274,15 @@ const DroneWarsArticle = () => {
               content: "";
               position: absolute;
               z-index: 1;
-              top: 0rem;
+              top: 0.2rem;
               width: 1.9px;
               height: 0.7rem;
               background: inherit;
             }
-
-            :before {
-              transform: rotate(45deg) translate(6px, 2px);
-            }
-
-            :after {
-              transform: rotate(-45deg) translate(-6px, 2px);
-            }
-
-            
           }
 
           .shortcuts-open{
-            background: #fff;
             display: ${shortcutsOpen};
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s ease;
-
-            /* Arrow lines */
-            :before,
-            :after {
-              content: "";
-              position: absolute;
-              z-index: 1;
-              top: 0.5rem;
-              width: 1.9px;
-              height: 0.7rem;
-              background: inherit;
-            }
 
             :before {
               transform: rotate(45deg) translate(-3px, 2px);
@@ -236,6 +290,22 @@ const DroneWarsArticle = () => {
 
             :after {
               transform: rotate(-45deg) translate(3px, 2px);
+            }
+          }
+
+          .shortcuts-closed{
+            display: ${shortcutsClosed};
+
+            :before {
+              transform: rotate(45deg) translate(6px, 1px);
+              top: -0.2rem;
+
+            }
+
+            :after {
+              transform: rotate(-45deg) translate(-6px, 1px);
+              top: -0.2rem;
+
             }
           }
         }
@@ -331,7 +401,10 @@ const DroneWarsArticle = () => {
       }
     }
 
-    @media (max-width: 768px){
+    @media (max-width: 767px){
+      .showcaseContainer{
+        height: 92vh;
+      }
       #subtitle-btns{
         overflow: hidden;
         div{
@@ -391,22 +464,40 @@ const DroneWarsArticle = () => {
         }
       }
     }
+
+    @media (min-width: 1024px){
+      .showcaseContainer{
+        height: auto;
+        width: 100%;
+      }
   `;
 
   return (
-    <Div>
+    <Div id="DroneWars">
       {/* <ScrollBtn onClick={scrollTo}>T</ScrollBtn> */}
       {FloatingBtn()}
       <div className="showcaseContainer">
         <div className="image-container">
-          {Image(poster, posterMin, showcaseHeight, "top")}
+          {/* {Image3(poster, posterMin, showcaseHeight, "top")} */}
+          {/* <ProgressiveImage image={poster} placeholder={posterMin} height={showcaseHeight} position="top" /> */}
+          {/* <Image2
+            alt={"Drone Wars"}
+            overlaySrc={posterMin}
+            src={poster}
+            /> */}
+            <ReactImageAppear 
+                  src={poster}
+                  placeholder={posterMin}
+                  showLoader={false}
+                  animation="blurIn"
+                />
         </div>
 
       </div>
       <span id="sub-btns-marker"></span>
       <section id="subtitle-btns">
         <div id="subtitle-btns-min"> 
-          <button onClick={toggleShortcuts} >
+          <button id="button" onClick={toggleShortcuts} >
             <div className="shortcuts-open">
             </div>
             <div className="shortcuts-closed">
@@ -414,12 +505,12 @@ const DroneWarsArticle = () => {
           </button>
         </div>
         <div id="subtitle-btns-max">
-          <Link to="history-of-drones" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>History of Drones</Link>
-          <Link to="military-capacity" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Military Capacity</Link>
-          <Link to="us-drone-policy" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>U.S. Drone Policy</Link>
-          <Link to="legal-ramifications" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Legal Ramifications</Link>
-          <Link to="obama" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Obama And Trump</Link>
-          <Link to="conclusion" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Conclusion</Link>
+          <SmoothLink to="history-of-drones" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>History of Drones</SmoothLink>
+          <SmoothLink to="military-capacity" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Military Capacity</SmoothLink>
+          <SmoothLink to="us-drone-policy" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>U.S. Drone Policy</SmoothLink>
+          <SmoothLink to="legal-ramifications" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Legal Ramifications</SmoothLink>
+          <SmoothLink to="obama" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Obama And Trump</SmoothLink>
+          <SmoothLink to="conclusion" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Conclusion</SmoothLink>
         </div>
       </section>
       <article className="container drone-article">
@@ -444,7 +535,7 @@ const DroneWarsArticle = () => {
           <div className="drone-article-text">
             <div>
               <div id="article-advice">
-                For full, interactive panels of our data, refer to the associated dashboard. The following piece is an objective
+                For full, interactive panels of our data, refer to the associated <Link to="/dronewars/data">dashboard</Link>. The following piece is an objective
                 analysis from said data. We strongly advise you to form your
                 conclusions based on both the investigation below and the original
                 datasets.

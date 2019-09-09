@@ -14,16 +14,14 @@ const Image = (image, placeholder, height, position) => {
   const { source, loaded } = loadState;
 
   useEffect(() => {
-    setTimeout(
-      (window.onload = function() {
-        setLoadState({
-          source: image,
-          loaded: true
-        });
-      }),
-      200
-    );
-  }, [image]);
+    if (source !== image) {
+      setLoadState({
+        source: image,
+        loaded: true
+      });
+      // img.source = image;
+    }
+  }, [image, source]);
 
   const ProgressiveImage = styled.div`
     width: 100%;

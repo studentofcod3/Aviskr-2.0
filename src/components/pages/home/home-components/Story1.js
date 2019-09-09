@@ -7,95 +7,119 @@ import HeroMin from "../../../../images/droneWarfare/Hero/drone-min.jpg";
 import Data from "../../../../images/story1/dashboard2.jpg";
 import DataMin from "../../../../images/story1/dashboard2-min.jpg";
 
-import Image from "../../../Utilities/Image";
+// import Image3 from "../../../Utilities/Image3";
+// import Image2 from "../../../Utilities/Image2";
+import ReactImageAppear from "react-image-appear";
 
 const Story1 = () => {
   const Div = styled.div`
-    background: #ffd700;
-    margin: 0;
-    padding: 1rem 0;
-    border: 2px solid #000;
-    border-bottom: none;
-    border-top: none;
+    #StoriesContainer {
+      background: #ffd700;
+      margin: 0;
+      padding: 1rem 0;
+      border: 2px solid #000;
+      border-bottom: none;
+      border-top: none;
 
-    #Story1Container,
-    #Story2Container {
-      border: solid 2px #000;
-      border-radius: 4px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 1rem;
-      background: #fff;
+      #Story1Container,
+      #Story2Container {
+        border: solid 2px #000;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem;
+        background: #fff;
 
-      .image-container {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        border-bottom: solid 2px #000;
-        img {
-          height: 100%;
+        .image-container {
           width: 100%;
-        }
-      }
-
-      .content-container {
-        padding: 0 1rem 1rem 1rem;
-        width: 100%;
-        margin: 0 auto;
-        .heading-container {
-          padding: 0.5rem 0;
-          display: flex;
-          justify-content: space-between;
-          .title {
-            font-size: 1.4rem;
-            font-weight: bold;
+          height: 100%;
+          overflow: hidden;
+          border-bottom: solid 2px #000;
+          img {
+            height: 100%;
+            width: 100%;
           }
 
-          .badge {
-            background: #000;
-            color: #fff;
-            padding: 0.4rem;
+          #imgHeight1 {
+            height: 100%;
           }
         }
 
-        p {
+        .content-container {
+          padding: 0 1rem 1rem 1rem;
+          width: 100%;
+          margin: 0 auto;
+          .heading-container {
+            padding: 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            .title {
+              font-size: 1.4rem;
+              font-weight: bold;
+            }
+
+            .badge {
+              background: #000;
+              color: #fff;
+              padding: 0.4rem;
+            }
+          }
+
+          p {
+          }
         }
       }
     }
   `;
   const [StoryState, setStoryState] = useState({
-    imgHeight1: "7rem",
+    imgHeight1: "8rem",
     imgHeight2: "20rem"
   });
 
   const { imgHeight1, imgHeight2 } = StoryState;
 
   const maxWidth = window.matchMedia("(max-width: 767px)");
+  const minWidth = window.matchMedia("(min-width: 1025px)");
 
-  window.onresize = () => {
-    if (maxWidth.matches) {
-      setStoryState({ imgHeight1: "7rem", imgHeight2: "20rem" });
-    } else {
-      setStoryState({ imgHeight1: "20rem", imgHeight2: "35rem" });
-    }
-  };
+  // window.onresize = () => {
+  //   if (maxWidth.matches) {
+  //     setStoryState({ imgHeight1: "8rem", imgHeight2: "20rem" });
+  //   } else {
+  //     setStoryState({ imgHeight1: "20rem", imgHeight2: "35rem" });
+  //   }
 
-  window.onload = () => {
-    if (maxWidth.matches) {
-      setStoryState({ imgHeight1: "7rem", imgHeight2: "15rem" });
-    } else {
-      setStoryState({ imgHeight1: "20rem", imgHeight2: "30rem" });
-    }
-  };
+  //   if (minWidth.matches) {
+  //   }
+  // };
+
+  // window.onload = () => {
+  //   if (maxWidth.matches) {
+  //     setStoryState({ imgHeight1: "8rem", imgHeight2: "15rem" });
+  //   } else {
+  //     setStoryState({ imgHeight1: "20rem", imgHeight2: "30rem" });
+  //   }
+  // };
 
   return (
-    <div>
-      <Div>
+    <Div>
+      <div id='StoriesContainer'>
         <div id='Story1Container'>
           <div className='image-container'>
-            {Image(Hero, HeroMin, imgHeight1, "bottom")}
+            {/* {Image3(Hero, HeroMin, imgHeight1, "bottom")} */}
+            {/* <Image3
+              image={Hero}
+              placeholder={HeroMin}
+              height={imgHeight1}
+              position='bottom'
+            /> */}
             {/* <img src={Hero} alt='Drone Wars Article' /> */}
+            <ReactImageAppear
+              src={Hero}
+              placeholder={HeroMin}
+              showLoader={false}
+              animation='blurIn'
+            />
           </div>
           <div className='content-container'>
             <div className='heading-container'>
@@ -106,12 +130,18 @@ const Story1 = () => {
             <Link to='/dronewars/article'>Read Article</Link>
           </div>
         </div>
-      </Div>
-      <Div>
+      </div>
+      <div id='StoriesContainer'>
         <div id='Story2Container'>
           <div className='image-container'>
             {/* <img src={Data} alt='Drone Wars Data' /> */}
-            {Image(Data, DataMin, imgHeight2, "bottom")}
+            {/* {Image3(Data, DataMin, imgHeight2, "bottom")} */}
+            <ReactImageAppear
+              src={Data}
+              placeholder={DataMin}
+              showLoader={false}
+              animation='blurIn'
+            />
           </div>
           <div className='content-container'>
             <div className='heading-container'>
@@ -126,8 +156,8 @@ const Story1 = () => {
             <Link to='/dronewars/data'>Observe Data</Link>
           </div>
         </div>
-      </Div>
-    </div>
+      </div>
+    </Div>
   );
 };
 

@@ -14,8 +14,8 @@ const FloatingBtn = () => {
     scroll.scrollTo(0);
   };
 
-  // window.onscroll = () => {
-  useEffect(() => {
+  const scrollEvent = () => {
+    // useEffect(() => {
     if (
       document.body.scrollTop < 1500 ||
       document.documentElement.scrollTop < 1500
@@ -55,8 +55,8 @@ const FloatingBtn = () => {
     ) {
       setButtonState({ opacity: "0.8" });
     }
-  });
-  // };
+    // }, []);
+  };
 
   const HeightControl = styled.span`
   #height-control {
@@ -154,7 +154,7 @@ const FloatingBtn = () => {
   // return <ScrollBtn onClick={scrollTo} className='fas fa-arrow-up' />;
 
   return (
-    <div>
+    <div onScroll={scrollEvent}>
       <HeightControl>
         <span id='heightControl' />
       </HeightControl>
