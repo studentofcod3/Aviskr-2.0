@@ -36,7 +36,7 @@ const Contact = () => {
     // <!-- Contact Form -->
     <Contact>
       <div className='container'>
-        <form method='POST' data-netlify='true' data-netlify-recaptcha='true'>
+        <form action='https://formspree.io/info@aviskr.com' method='POST'>
           {/* <!-- data-netlify-recaptcha filters spam. Need to add it into the form below --> */}
           <div className='text-fields'>
             <h3>Get in touch with us here:</h3>
@@ -66,10 +66,10 @@ const Contact = () => {
               placeholder='Message'
               name='message'
             />
-            <div className='my-2'>
-              {/* <!-- Recaptcha --> */}
-              <div data-netlify-recaptcha='true' />
-            </div>
+            {/* <div className='my-2'> */}
+            {/* <!-- Recaptcha --> */}
+            {/* <div data-netlify-recaptcha='true' />
+            </div> */}
             <button type='submit' className='btn-contact'>
               Submit
             </button>

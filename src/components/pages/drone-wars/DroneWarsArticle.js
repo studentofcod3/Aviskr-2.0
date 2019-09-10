@@ -23,6 +23,9 @@ import FloatingBtn from "../../Utilities/FloatingBtn";
 
 
 const DroneWarsArticle = () => {
+  useEffect(()=>{
+      window.scrollTo(0, 0)
+  }, [])
 
 
   // States
@@ -379,6 +382,7 @@ const DroneWarsArticle = () => {
 
           div{
             p{
+              margin: 1rem 0;
               .italic{
                 font-style: italic
               }
@@ -386,7 +390,7 @@ const DroneWarsArticle = () => {
           }
 
           .figures{
-            margin: 6rem 0;
+            margin: 5rem 0;
             img{
               width: 100%;
               height: 100%;
@@ -442,6 +446,7 @@ const DroneWarsArticle = () => {
           
           .drone-article-text{
             font-size: 1.15rem;
+
             #article-advice{
               padding-bottom: 1rem;
               font-size: 1.15rem;
@@ -449,6 +454,12 @@ const DroneWarsArticle = () => {
   
             .heading{
 
+            }
+
+            div{
+              p{
+                margin: 2rem 0;
+              }
             }
   
             .figures{

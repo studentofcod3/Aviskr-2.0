@@ -57,6 +57,8 @@ const SlideShow = () => {
           padding: 0;
           width: 100%;
           height: auto;
+          border-bottom: solid 1.5px #000;
+
           img {
             margin: 0;
             padding: 0;
@@ -66,7 +68,7 @@ const SlideShow = () => {
         }
 
         .content-container {
-          border-top: solid 1.5px #000;
+          // border-top: solid 1.5px #000;
           padding: 2rem;
 
           .container {
@@ -117,8 +119,10 @@ const SlideShow = () => {
         .image-container {
           margin: 0;
           padding: 0;
-          width: 100%;
-          height: auto;
+          width: auto;
+          height: 100%;
+          background: #000;
+          min-height: 6rem;
           img {
             margin: 0;
             padding: 0;

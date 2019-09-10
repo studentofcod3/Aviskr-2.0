@@ -33,12 +33,14 @@ const Story1 = () => {
 
         .image-container {
           width: 100%;
-          height: 100%;
-          overflow: hidden;
+          height: auto;
+          background: #000;
+          min-height: 4rem;
           border-bottom: solid 2px #000;
+          overflow: hidden;
           img {
-            height: 100%;
             width: 100%;
+            height: auto;
           }
 
           #imgHeight1 {
@@ -71,6 +73,23 @@ const Story1 = () => {
         }
       }
     }
+
+    // @media (min-width: 1024px) {
+    //   #StoriesContainer {
+    //     #Story1Container,
+    //     #Story2Container {
+    //       .image-container {
+    //         width: 100%;
+    //         height: auto;
+
+    //         img {
+    //           width: 100%;
+    //           height: auto;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
   `;
   const [StoryState, setStoryState] = useState({
     imgHeight1: "8rem",

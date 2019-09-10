@@ -75,6 +75,7 @@ const DroneWarsData = () => {
       overflow: scroll;
       display: flex;
       justify-content: center;
+      align-items: center;
       width: 800px;
     }
 
@@ -86,6 +87,13 @@ const DroneWarsData = () => {
       }
       #vizContainer {
         display: none;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      #vizContainer {
+        margin-top: 6rem;
+        overflow: hidden;
       }
     }
   `;

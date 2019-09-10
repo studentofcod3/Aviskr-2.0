@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Image3 = (image, placeholder, height, position, alternate) => {
-  const props = {
-    image,
-    placeholder,
-    height,
-    position,
-    alternate
-  };
+  // const props = {
+  //   image,
+  //   placeholder,
+  //   height,
+  //   position,
+  //   alternate
+  // };
 
   // const { image, placeholder, height, position, alternate } = props;
 
@@ -58,7 +58,7 @@ const Image3 = (image, placeholder, height, position, alternate) => {
   `;
 
   return (
-    <ProgressiveImage props>
+    <ProgressiveImage>
       <img
         // {...filteredProps}
         onLoad={() => {

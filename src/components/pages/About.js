@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../App.scss";
 import styled from "styled-components";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const About = styled.div`
     div {
       margin: 0 12rem;
