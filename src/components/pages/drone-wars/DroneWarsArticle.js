@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
 import { Link as SmoothLink, Element } from 'react-scroll';
 import smoothscroll from "smoothscroll-polyfill";
+import { animateScroll as scroll } from "react-scroll";
 
 
 import fig1 from "../../../images/droneWarfare/drone-figures/fig1.png";
@@ -25,7 +26,11 @@ import FloatingBtn from "../../Utilities/FloatingBtn";
 const DroneWarsArticle = () => {
   useEffect(()=>{
       window.scrollTo(0, 0)
-  }, [])
+  }, []);
+
+  const scrollTo = () => {
+    scroll.scrollTo(0);
+  };
 
 
   // States
@@ -483,10 +488,16 @@ const DroneWarsArticle = () => {
       }
   `;
 
+  
+
   return (
-    <Div id="DroneWars">
+    <Fragment>
+    <div id='floatingBtn'>
+      <button className='button' onClick={scrollTo}> <div></div></button>
+    </div>
+    <div id="DroneWars">
       {/* <ScrollBtn onClick={scrollTo}>T</ScrollBtn> */}
-      {FloatingBtn()}
+      {/* {FloatingBtn()} */}
       <div className="showcaseContainer">
         <div className="image-container">
           {/* {Image3(poster, posterMin, showcaseHeight, "top")} */}
@@ -506,16 +517,15 @@ const DroneWarsArticle = () => {
         </div>
 
       </div>
-      <span id="sub-btns-marker"></span>
       <section id="subtitle-btns">
-        <div id="subtitle-btns-min"> 
+        {/* <div id="subtitle-btns-min"> 
           <button id="button" onClick={toggleShortcuts} >
             <div className="shortcuts-open">
             </div>
             <div className="shortcuts-closed">
             </div>
           </button>
-        </div>
+        </div> */}
         <div id="subtitle-btns-max">
           <SmoothLink to="history-of-drones" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>History of Drones</SmoothLink>
           <SmoothLink to="military-capacity" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Military Capacity</SmoothLink>
@@ -971,7 +981,9 @@ const DroneWarsArticle = () => {
         </div>
       </article>
 
-    </Div>
+    </div>
+
+    </Fragment>
   );
 };
 export default DroneWarsArticle
