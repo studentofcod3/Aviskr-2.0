@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "70bab8df63ed40265f7703c219ffc7a8",
+    "revision": "6196175d7d57ed2d77a578391f3736fd",
     "url": "/Aviskr-2.0/index.html"
   },
   {
-    "revision": "fc772fe42d96fc5fab41",
-    "url": "/Aviskr-2.0/static/css/main.5678b50d.chunk.css"
+    "revision": "6108d9e5a95f0ae4fb10",
+    "url": "/Aviskr-2.0/static/css/main.e3573bcf.chunk.css"
   },
   {
-    "revision": "ea5f7572821aaf146888",
-    "url": "/Aviskr-2.0/static/js/2.23466301.chunk.js"
+    "revision": "69c77903ce7534fd80e1",
+    "url": "/Aviskr-2.0/static/js/2.7c3966a4.chunk.js"
   },
   {
-    "revision": "fc772fe42d96fc5fab41",
-    "url": "/Aviskr-2.0/static/js/main.13edbc1e.chunk.js"
+    "revision": "6108d9e5a95f0ae4fb10",
+    "url": "/Aviskr-2.0/static/js/main.4097b354.chunk.js"
   },
   {
     "revision": "f68449dcdfefd0e46b01",

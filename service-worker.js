@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Aviskr-2.0/precache-manifest.be348e91465095d62774fa918cd107d3.js"
+  "/Aviskr-2.0/precache-manifest.cb099ef1f83fe681c4597f405987a62f.js"
 );
 
 self.addEventListener('message', (event) => {
