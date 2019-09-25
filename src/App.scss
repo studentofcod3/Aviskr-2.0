@@ -30,7 +30,7 @@ a{
 .loading {
   background: transparent url('http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif') center no-repeat;
 
-  background: #7a7070;
+  background: #70787a;
 
   &::before{
     content: '';
@@ -228,7 +228,7 @@ ul{ list-style: none};
 
     a {
       height: 100%;
-      :hover {
+      &:hover {
         text-decoration: none;
       }
 
@@ -354,7 +354,6 @@ ul{ list-style: none};
         align-items: center;
         img {
           width: 100%;
-          height: 10rem;
         }
 
         #imgHeight1 {

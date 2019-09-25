@@ -57,7 +57,7 @@ const Story1 = () => {
             <ReactImageAppear
               src={Hero}
               placeholder={HeroMin}
-              showLoader={true}
+              showLoader={false}
               animation='blurIn'
             />
           </div>
