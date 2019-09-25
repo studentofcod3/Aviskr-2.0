@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Cinzel+Decorative&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 
 $primary-text-color: #999;
 $Tab2-Background-Color: #ddd;
@@ -14,13 +16,19 @@ $head-foot-background-color: #bbb;
   line-height: 1.5rem;
 }
 
+#Home{
+  background: #ffd700;
+}
+
 a{
   color: #000;
-
   &:hover{
     text-decoration: none;
   }
+}
 
+.loading {
+  background: transparent url('http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif') center no-repeat;
 }
 
 
@@ -35,9 +43,375 @@ a{
   color: #000;
 }
 
-ul{ list-style: none}
+ul{ list-style: none};
+
+#homeShowcase{
+    height: 100%;
+    position: relative;
+    border: solid 2px black;
+    border-top: none;
+}
+
+// Mobile Showcase
+#mobileShowcase{
+  margin-bottom: 0;
+  box-sizing: border-box;
+  height: 90vh;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  display: flex;
+  background: linear-gradient(to bottom left, #fff, #ebe9e9);
+
+  ol{
+    width: 100%;
+    margin: 0;
+    
+    li {
+      width: 5%;
+      height: 5%;
+      border: 1px solid #ffd700;
+      border-radius: 100%;
+    }
+  }
+
+      // Hiding prev and next buttons
+      a{
+        display: none;
+        // margin-bottom: 8rem;
+      }
 
 
+    // Stacking Carousel Items
+    #carousel-item-structure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
 
+      .image-container {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        border-bottom: solid 1.5px #000;
+
+        img {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .content-container {
+        // border-top: solid 1.5px #000;
+        padding: 2rem;
+
+        .container {
+          display: flex;
+          justify-content: space-between;
+          margin: 0;
+          padding: 0;
+          padding-bottom: 0.5rem;
+          h3 {
+          }
+
+          .badge {
+            background: linear-gradient(to left, #e9ec08, #a1aa24 );
+            color: #3d3333;
+            align-self: flex-start;
+            margin-top: 0.6rem;
+            margin-right: 0.4rem;
+            padding: 0.4rem;
+          }
+        }
+
+        p {
+          padding: 0.8rem 0;
+          font-size: 1.15rem;
+        }
+
+        .link-container {
+          padding: 1rem;
+          padding-left: 0;
+          padding-top: 0;
+
+          a{
+            display: block;
+          }
+        }
+      }
+    }         
+  }
+
+
+    @media (max-width: 350px) {
+      #carousel-item-structure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+
+        .image-container {
+          margin: 0;
+          padding: 0;
+          width: auto;
+          background: #000;
+          min-height: 6rem;
+
+  
+
+          img {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        .content-container {
+          padding: 1rem;
+
+          .container {
+            h3 {
+              font-size: 1.5rem;
+            }
+
+            .badge {
+              background: linear-gradient(to bottom right, #000, #683636 ) ;
+              color: #fff;
+              align-self: flex-start;
+              margin-top: 0.6rem;
+              margin-right: 0.4rem;
+              padding: 0.4rem;
+            }
+          }
+
+          p {
+            padding: 0;
+            font-size: 1rem;
+          }
+
+          .link-container {
+            font-size: 1rem;
+            padding: 0rem;
+            padding-bottom: 1rem;
+          }
+        }
+    }
+}
+
+// Desktop showcase
+#desktopShowcase{
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  animation: slide 3s 2s forwards;
+  border-bottom: solid 4px #000;
+
+    a {
+      height: 100%;
+      :hover {
+        text-decoration: none;
+      }
+
+      .image-container {
+        overflow: hidden;
+        background-size: cover;
+        width: 100%;
+        height: 93vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+
+        .import-container {
+          position: absolute;
+          top: 0;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+
+        .container {
+          width: 100%;
+          padding: 2rem;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-end;
+
+          .heading-container{
+            background: linear-gradient(to left, #b1a9a9ea, #7a7070);
+            background: linear-gradient(to left, #c3e4e4ea, #9bc2c7);
+            opacity: 0.8;
+            border: none;
+
+            h3 {
+              display: inline;
+              padding: 0.2rem 0rem;
+              font-family: 'Roboto', sans-serif;
+              font-weight: 550;
+              color: #222;
+              line-height: 1.7;
+              font-size: 3.5rem;
+              margin-bottom: 1.4rem;
+              z-index: 1;
+            }
+          }
+
+
+          .sub-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-end;
+
+            h6 {
+              display: inline;
+              margin: 0;
+              color: #111;
+              opacity: 0.8;
+              background: linear-gradient(to right, #ffd700, #a3933a);
+              font-size: 1.5rem;
+              padding: 0.35rem;
+            }
+          }
+        }
+      }
+    }
+
+    @media (min-width: 768px) {
+      .image-container {
+        overflow: hidden;
+        background-size: cover;
+        width: 100%;
+        height: 93vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .import-container {
+          width: 100%;
+
+          img {
+            width: 100%;
+          }
+        }
+    }
+  }
+}
+
+// Home stories
+#homeStories{
+  border: 2px solid #000;
+  #StoriesContainer {
+    margin: 0;
+    padding: 1rem 0;
+
+    #Story1Container,
+    #Story2Container {
+      border: solid 2px #000;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1rem;
+      background: linear-gradient(to bottom left, #fff, #ebe9e9);
+
+      .image-container {
+        width: 100%;
+        height: auto;
+        background: #000;
+        min-height: 4rem;
+        border-bottom: solid 2px #000;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        #imgHeight1 {
+          height: 100%;
+        }
+      }
+
+      .content-container {
+        padding: 0 1rem 1rem 1rem;
+        width: 100%;
+        margin: 0 auto;
+        .heading-container {
+          padding: 0.5rem 0;
+          display: flex;
+          justify-content: space-between;
+          .title {
+            font-size: 1.4rem;
+            font-weight: bold;
+          }
+
+          .badge {
+            background: linear-gradient(to left, #e9ec08, #a1aa24 );;
+            color: #3d3333;
+            padding: 0.4rem;
+            
+          }
+        }
+
+        p {
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    
+    #StoriesContainer {
+      padding-top: 70vh;
+      display: flex;
+      justify-content: center;
+      border: none;
+      height: 100%;
+      flex: 1 1 0;
+
+      #Story1Container,
+      #Story2Container {
+        .image-container {
+          width: 100%;
+          height: auto;
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+
+    }
+      
+  }
+}
+
+@keyframes slide {
+  0%{
+    transform: scale(1, 1);
+  }
+
+
+  100%{
+    transform: scale(1, 0.9) translateY(-30%);
+  }
+}
 
 

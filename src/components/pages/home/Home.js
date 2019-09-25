@@ -8,7 +8,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div id='Home'>
       <HomeShowcase />
       <Story1 />
     </div>

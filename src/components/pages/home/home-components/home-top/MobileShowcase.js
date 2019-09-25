@@ -15,156 +15,8 @@ import "../../../../../App.scss";
 import styled from "styled-components";
 
 const SlideShow = () => {
-  const Div = styled.div`
-    margin-bottom: 0;
-    box-sizing: border-box;
-    height: 90vh;
-    width: 100%;
-    background: #fff;
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-    display: flex;
-
-    ol{
-      width: 100%;
-      margin: 0;
-      
-      li {
-        width: 5%;
-        height: 5%;
-        border: 1px solid #ffd700;
-        border-radius: 100%;
-      }
-    }
-
-        // Hiding prev and next buttons
-        a{
-          display: none;
-          // margin-bottom: 8rem;
-        }
-
-
-      // Stacking Carousel Items
-      #carousel-item-structure {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-
-        .image-container {
-          margin: 0;
-          padding: 0;
-          width: 100%;
-          height: auto;
-          border-bottom: solid 1.5px #000;
-
-          img {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: auto;
-          }
-        }
-
-        .content-container {
-          // border-top: solid 1.5px #000;
-          padding: 2rem;
-
-          .container {
-            display: flex;
-            justify-content: space-between;
-            margin: 0;
-            padding: 0;
-            padding-bottom: 0.5rem;
-            h3 {
-            }
-
-            .badge {
-              background: #000;
-              color: #fff;
-              align-self: flex-start;
-              margin-top: 0.6rem;
-              margin-right: 0.4rem;
-              padding: 0.4rem;
-            }
-          }
-
-          p {
-            padding: 0.8rem 0;
-            font-size: 1.15rem;
-          }
-
-          .link-container {
-            padding: 1rem;
-            padding-left: 0;
-            padding-top: 0;
-
-            a{
-              display: block;
-            }
-          }
-        }
-      }         
-    }
-
-
-    @media (max-width: 350px) {
-      #carousel-item-structure {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0;
-
-        .image-container {
-          margin: 0;
-          padding: 0;
-          width: auto;
-          height: 100%;
-          background: #000;
-          min-height: 6rem;
-          img {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: auto;
-          }
-        }
-
-        .content-container {
-          padding: 1rem;
-
-          .container {
-            h3 {
-              font-size: 1.5rem;
-            }
-
-            .badge {
-              background: #000;
-              color: #fff;
-              align-self: flex-start;
-              margin-top: 0.6rem;
-              margin-right: 0.4rem;
-              padding: 0.4rem;
-            }
-          }
-
-          p {
-            padding: 0;
-            font-size: 1rem;
-          }
-
-          .link-container {
-            font-size: 1rem;
-            padding: 0rem;
-            padding-bottom: 1rem;
-          }
-        }
-    }
-  `;
-
   return (
-    <Div>
+    <div id='mobileShowcase'>
       <div id='HomeTop'>
         <Carousel>
           <Carousel.Item>
@@ -222,7 +74,7 @@ const SlideShow = () => {
           </Carousel.Item>
         </Carousel>
       </div>
-    </Div>
+    </div>
   );
 };
 

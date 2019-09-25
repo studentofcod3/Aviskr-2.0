@@ -496,12 +496,13 @@ const DroneWarsArticle = () => {
             overlaySrc={posterMin}
             src={poster}
             /> */}
-            <ReactImageAppear 
+            {/* <ReactImageAppear 
                   src={poster}
                   placeholder={posterMin}
                   showLoader={false}
                   animation="blurIn"
-                />
+                /> */}
+            <img src={poster} alt='Drone Wars' className='loading' />
         </div>
 
       </div>
