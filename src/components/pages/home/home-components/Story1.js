@@ -54,13 +54,12 @@ const Story1 = () => {
               position='bottom'
             /> */}
             {/* <img src={Hero} alt='Drone Wars Article' /> */}
-            {/* <ReactImageAppear
+            <ReactImageAppear
               src={Hero}
               placeholder={HeroMin}
-              showLoader={false}
+              showLoader={true}
               animation='blurIn'
-            /> */}
-            <img src={Hero} alt='Drone Wars' className='loading' />
+            />
           </div>
           <div className='content-container'>
             <div className='heading-container'>
