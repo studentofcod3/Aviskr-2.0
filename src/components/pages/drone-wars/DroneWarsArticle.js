@@ -552,6 +552,9 @@ const DroneWarsArticle = () => {
           <p className="section-title-sub">
             Analysis of Presidential Policy Guideline
           </p>
+          <p className="author">
+            Written by Nathan Alli, Edited by Jubair Ahmed
+          </p>
         </div>
         <div className="container drone-article-body">
           <div className="drone-article-text">

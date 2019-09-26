@@ -108,6 +108,8 @@ ul{ list-style: none};
         width: 100%;
         height: auto;
         border-bottom: solid 1.5px #000;
+        opacity: 0;
+        animation: fadein 2s forwards;
 
         img {
           margin: 0;
@@ -278,7 +280,6 @@ ul{ list-style: none};
               color: #222;
               line-height: 1.7;
               font-size: 3.5rem;
-              margin-bottom: 1.4rem;
               z-index: 1;
             }
           }
@@ -327,6 +328,8 @@ ul{ list-style: none};
 
 // Home stories
 #homeStories{
+  opacity: 0;
+  animation: fadein 3s 1s forwards;
   border: 2px solid #000;
   #StoriesContainer {
     margin: 0;
@@ -419,275 +422,275 @@ ul{ list-style: none};
 
 // Drone Wars Article
 #DroneWars{
+  opacity: 0;
+  animation: fadein 2s forwards;
   border: solid 2px #000;
-    border-top: none;
-    border-bottom: none;
+  border-top: none;
+  border-bottom: none;
 
-    .showcaseContainer{
-      height: 110vh;
+  .showcaseContainer{
+    height: 110vh;
+    width: auto;
+
+    .image-container{
+      background: #000;
       width: auto;
+      height: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
 
-      .image-container{
-        background: #000;
-        width: auto;
+      img{
         height: 100%;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
+      }
+    }
+  }
 
-        img{
-          height: 100%;
+  #subtitle-btns{
+    background: #000;
+    width: 100%;
+
+    #subtitle-btns-min{
+      display: none;
+      position: fixed;
+      top: 3rem;
+      height: 1rem;
+      justify-content: space-around;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      background: #000;
+      width: 100%;
+      
+      #button{
+        width: 100%;
+        height: 100%;
+        
+        &:hover{
+          cursor: auto;
+        }
+
+        .shortcuts-open, .shortcuts-closed{
+          background: #fff;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.4s ease;
+          
+
+          /* Arrow lines */
+          &:before,
+          &:after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: 0.2rem;
+            width: 1.9px;
+            height: 0.7rem;
+            background: inherit;
+          }
+        }
+
+        .shortcuts-open{
+          display: block;
+
+          &:before {
+            transform: rotate(45deg) translate(-3px, 2px);
+          }
+
+          :after {
+            transform: rotate(-45deg) translate(3px, 2px);
+          }
+        }
+
+        .shortcuts-closed{
+          display: none;
+
+          &:before {
+            transform: rotate(45deg) translate(6px, 1px);
+            top: -0.2rem;
+
+          }
+
+          &:after {
+            transform: rotate(-45deg) translate(-6px, 1px);
+            top: -0.2rem;
+
+          }
+        }
+      }
+    }
+    
+    #subtitle-btns-max{
+      display: flex;
+      flex-direction: column;
+      padding: 0.8rem 2rem;
+      justify-content: space-around;
+      align-items: center;
+      position: none;
+      top: 4rem;
+      background: #000;
+      width: 100%;
+
+      a{
+        color: #fff;
+        line-height: 1.5;
+        margin: 0.1rem 0;
+        transition: all 1s ease;
+        &:hover{
+          color: #ffd700;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .drone-article{
+    padding: 3rem 10rem;
+    .date{
+      display: inline-block;
+      margin-bottom: 2.5rem;
+      div{
+        border-bottom: solid 1.5px #000;
+        
+        :last-child{
+          border-bottom: none;
         }
       }
     }
 
-    #subtitle-btns{
-      background: #000;
-      width: 100%;
+    .drone-title{
+      .section-title{
+        font-size: 4rem;
+        margin:0;
+        line-height: 1.5;
+        margin-bottom: 2rem;
+      }
 
-      #subtitle-btns-min{
-        display: none;
-        position: fixed;
-        top: 3rem;
-        height: 1rem;
-        justify-content: space-around;
-        text-align: center;
-        padding: 0;
+      .section-title-sub{
+        font-size: 2rem;
         margin: 0;
-        background: #000;
-        width: 100%;
-        
-        #button{
-          width: 100%;
-          height: 100%;
-          
-          &:hover{
-            cursor: auto;
-          }
+        padding-bottom: 2.4rem;
+      }
+    }
 
-          .shortcuts-open, .shortcuts-closed{
-            background: #fff;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s ease;
-            
+    .drone-article-body{
+      padding: 1rem 1rem;
 
-            /* Arrow lines */
-            &:before,
-            &:after {
-              content: "";
-              position: absolute;
-              z-index: 1;
-              top: 0.2rem;
-              width: 1.9px;
-              height: 0.7rem;
-              background: inherit;
-            }
-          }
+      .drone-article-text{
+        font-size: 1.5rem;
 
-          .shortcuts-open{
-            display: block;
+        #article-advice{
+          color: #bbb;
+          font-style: italic;
+        }
 
-            &:before {
-              transform: rotate(45deg) translate(-3px, 2px);
-            }
+        .heading{
+          border-bottom: 2px solid #000;
+          margin-top: 8rem;
+          margin-bottom: 1.3rem;
+        }
 
-            :after {
-              transform: rotate(-45deg) translate(3px, 2px);
-            }
-          }
-
-          .shortcuts-closed{
-            display: none;
-
-            &:before {
-              transform: rotate(45deg) translate(6px, 1px);
-              top: -0.2rem;
-
-            }
-
-            &:after {
-              transform: rotate(-45deg) translate(-6px, 1px);
-              top: -0.2rem;
-
+        div{
+          p{
+            margin: 1rem 0;
+            .italic{
+              font-style: italic
             }
           }
         }
+
+        .figures{
+          margin: 5rem 0;
+          img{
+            width: 100%;
+            height: 100%;
+          }
+
+          span{
+            font-size: 1rem;
+          }
+        }
       }
-      
-      #subtitle-btns-max{
-        display: flex;
+
+    }
+  }
+
+  @media (max-width: 767px){
+    .showcaseContainer{
+      height: 92vh;
+    }
+    #subtitle-btns{
+      overflow: hidden;
+      div{
         flex-direction: column;
-        padding: 0.8rem 2rem;
-        justify-content: space-around;
         align-items: center;
-        position: none;
-        top: 4rem;
-        background: #000;
-        width: 100%;
 
         a{
-          color: #fff;
-          line-height: 1.5;
-          margin: 0.1rem 0;
-          transition: all 1s ease;
-          &:hover{
-            color: #ffd700;
-            cursor: pointer;
-          }
+          margin: 0.5rem;
+          cursor: pointer;
         }
       }
     }
 
     .drone-article{
-      padding: 3rem 10rem;
+      padding: 3rem 3rem;
       .date{
-        display: inline-block;
-        margin-bottom: 2.5rem;
-        div{
-          border-bottom: solid 1.5px #000;
-          
-          :last-child{
-            border-bottom: none;
-          }
-        }
+        margin-bottom: 1.5rem;
       }
 
       .drone-title{
         .section-title{
-          font-size: 4rem;
-          margin:0;
-          line-height: 1.5;
-          margin-bottom: 2rem;
+          font-size: 2rem;
+          padding-bottom: .8rem;
         }
 
         .section-title-sub{
-          font-size: 2rem;
-          margin: 0;
-          padding-bottom: 2.4rem;
+          font-size: 1.3rem;
+          padding-bottom: 1rem;
         }
-
       }
 
       .drone-article-body{
-        padding: 1rem 1rem;
-
+        padding: 1rem 0;
+        
         .drone-article-text{
-          font-size: 1.5rem;
+          font-size: 1.15rem;
 
           #article-advice{
-            color: #bbb;
-            font-style: italic;
+            padding-bottom: 1rem;
+            font-size: 1.15rem;
           }
 
           .heading{
-            border-bottom: 2px solid #000;
-            margin-top: 8rem;
-            margin-bottom: 1.3rem;
+
           }
 
           div{
             p{
-              margin: 1rem 0;
-              .italic{
-                font-style: italic
-              }
+              margin: 2rem 0;
             }
           }
 
           .figures{
-            margin: 5rem 0;
             img{
-              width: 100%;
-              height: 100%;
+              
             }
-
+  
             span{
-              font-size: 1rem;
-            }
-          }
-        }
-
-      }
-    }
-
-    @media (max-width: 767px){
-      .showcaseContainer{
-        height: 92vh;
-      }
-      #subtitle-btns{
-        overflow: hidden;
-        div{
-          flex-direction: column;
-          align-items: center;
-
-          a{
-            margin: 0.5rem;
-            cursor: pointer;
-          }
-        }
-      }
-
-      .drone-article{
-        padding: 3rem 3rem;
-        .date{
-          margin-bottom: 1.5rem;
-        }
-  
-        .drone-title{
-          .section-title{
-            font-size: 2rem;
-            padding-bottom: .8rem;
-          }
-  
-          .section-title-sub{
-            font-size: 1.3rem;
-            padding-bottom: 1rem;
-          }
-  
-        }
-  
-        .drone-article-body{
-          padding: 1rem 0;
-          
-          .drone-article-text{
-            font-size: 1.15rem;
-
-            #article-advice{
-              padding-bottom: 1rem;
-              font-size: 1.15rem;
-            }
-  
-            .heading{
-
-            }
-
-            div{
-              p{
-                margin: 2rem 0;
-              }
-            }
-  
-            .figures{
-              img{
-                
-              }
-  
-              span{
-                font-size: 0.8rem;
-              }
+              font-size: 0.8rem;
             }
           }
         }
       }
     }
+  }
 
-    @media (min-width: 1024px){
-      .showcaseContainer{
-        height: auto;
-        width: 100%;
-      }
+  @media (min-width: 1024px){
+    .showcaseContainer{
+      height: auto;
+      width: 100%;
     }
+  }
 }
 
 
@@ -760,6 +763,17 @@ ul{ list-style: none};
 
   100%{
     transform: scale(1, 0.9) translateY(-30%);
+  }
+}
+
+@keyframes fadein {
+  0%{
+    opacity: 0;
+  }
+
+
+  100%{
+    opacity: 1;
   }
 }
 
