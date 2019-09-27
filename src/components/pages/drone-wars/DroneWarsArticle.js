@@ -448,7 +448,7 @@ const DroneWarsArticle = () => {
   
         .drone-article-body{
           padding: 1rem 0;
-          
+
           .drone-article-text{
             font-size: 1.15rem;
 
@@ -492,9 +492,6 @@ const DroneWarsArticle = () => {
 
   return (
     <Fragment>
-    <div id='floatingBtn'>
-      <button className='button' onClick={scrollTo}> <div></div></button>
-    </div>
     <div id="DroneWars">
       {/* <ScrollBtn onClick={scrollTo}>T</ScrollBtn> */}
       {/* {FloatingBtn()} */}
@@ -515,8 +512,8 @@ const DroneWarsArticle = () => {
                 /> */}
             <img src={poster} alt='Drone Wars' className='loading' />
         </div>
-
       </div>
+
       <section id="subtitle-btns">
         {/* <div id="subtitle-btns-min"> 
           <button id="button" onClick={toggleShortcuts} >
@@ -536,6 +533,13 @@ const DroneWarsArticle = () => {
         </div>
       </section>
       <article className="container drone-article">
+        <div id="floating-items-container">
+          <div id='floatingBtn'>
+            <button className='button' onClick={scrollTo}> 
+            <div></div>
+            </button>
+          </div>
+        </div>
         <div className="date">
           <div>
             16

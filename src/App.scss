@@ -9,7 +9,6 @@ $Tab1-Background-Color: #333;
 $head-foot-background-color: #bbb;
 
 .App{
-  overflow: hidden;
   background: $Primary-background-color;
   box-sizing: border-box;
   font-size: 1.15rem;
@@ -546,6 +545,7 @@ ul{ list-style: none};
 
   .drone-article{
     padding: 3rem 10rem;
+    // top: 0;
     .date{
       display: inline-block;
       margin-bottom: 2.5rem;
@@ -598,6 +598,8 @@ ul{ list-style: none};
             }
           }
         }
+
+
 
         .figures{
           margin: 5rem 0;
@@ -693,63 +695,66 @@ ul{ list-style: none};
   }
 }
 
+#floating-items-container{
+  position: sticky;
+  top: 5rem;
+  opacity: 0.4;
 
-#floatingBtn{
-  background: none;
-  position: fixed;
-  bottom: 0;
-  left: 1rem;
-  height: 5vh;
-  position: fixed;
-  z-index: 2;
-
-
-  .button {
-    display: block;
-    background: linear-gradient(to bottom right, #f7f457, #da5609 );
-    padding: 1rem 1rem;
-    // border-radius: 8px;
-    opacity: 0.6;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    width: 40px;
-    height: 40px;
+  #floatingBtn{
+    position: relative;
+    bottom: -80vh;
+    left: -13vw;
+    height: 5vh;
     z-index: 2;
-
-    // Middle line
-    div {
-      position: relative;
-      flex: none;
-      width: 2px;
-      height: 1.2rem;
-      top: -4px;
-      background: #000;
+  
+  
+    .button {
+      // display: block;
+      background: linear-gradient(to bottom right, #f1f1ed, #f1dbce );
+      padding: 1rem 1rem;
+      border-radius: 8px;
+      opacity: 0.6;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
-      transition: all 0.4s ease;
-
-
-      /* Arrow lines */
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        z-index: 1;
-        top: -0.6rem;
-        width: 1.9px;
-        height: 0.7rem;
-        background: inherit;
-      }
-
-      &:before {
-        transform: rotate(45deg) translate(2px, 8px);
-      }
-
-      &:after {
-        transform: rotate(315deg) translate(-2px, 8px);
+      box-sizing: border-box;
+      width: 40px;
+      height: 40px;
+      z-index: 2;
+  
+      // Middle line
+      div {
+        position: relative;
+        flex: none;
+        width: 2px;
+        height: 1.2rem;
+        top: -4px;
+        background: #000;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        transition: all 0.4s ease;
+  
+  
+        /* Arrow lines */
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          z-index: 1;
+          top: -0.6rem;
+          width: 1.9px;
+          height: 0.7rem;
+          background: inherit;
+        }
+  
+        &:before {
+          transform: rotate(45deg) translate(2px, 8px);
+        }
+  
+        &:after {
+          transform: rotate(315deg) translate(-2px, 8px);
+        }
       }
     }
   }
