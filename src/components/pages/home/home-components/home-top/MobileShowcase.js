@@ -34,8 +34,8 @@ const SlideShow = () => {
                   <span className='badge article-badge'>Article</span>
                 </div>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Accusamus labore, ut animi modi
+                  A live, full-stack analysis on US drone excursions in
+                  Afghanistan, Pakistan, Somalia and Yemen
                 </p>
                 <div className='link-container'>
                   <Link to='/dronewars/article'>Read the Article</Link>

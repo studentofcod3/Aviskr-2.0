@@ -15,7 +15,7 @@ import posterMin from "../../../images/droneWarfare/Hero/drone-full-min.jpg";
 
 
 AOS.init({
-  offset: 400,
+  offset: 700,
   duration: 1000
 });
 

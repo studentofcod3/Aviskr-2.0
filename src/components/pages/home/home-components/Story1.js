@@ -66,7 +66,10 @@ const Story1 = () => {
               <span className='title'>Drone Wars</span>
               <span className='badge article-badge'>Article</span>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>
+              A live, full-stack analysis on US drone excursions in Afghanistan,
+              Pakistan, Somalia and Yemen
+            </p>
             <Link to='/dronewars/article'>Read Article</Link>
           </div>
         </div>
