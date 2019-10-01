@@ -25,7 +25,7 @@ const Story1 = () => {
           <div className='content-container'>
             <div className='heading-container'>
               <span className='title'>China</span>
-              <span className='badge'>Article</span>
+              <span className='badge article-badge'>Article</span>
             </div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <Link to='/china/article'>Read Article</Link>

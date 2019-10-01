@@ -1,11 +1,10 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import styled from "styled-components";
+import React, { useEffect, Fragment } from 'react';
 
 import { Link } from "react-router-dom";
 import { Link as SmoothLink, Element } from 'react-scroll';
 import smoothscroll from "smoothscroll-polyfill";
 import { animateScroll as scroll } from "react-scroll";
-
+import AOS from 'aos';
 
 import fig1 from "../../../images/droneWarfare/drone-figures/fig1.png";
 import fig2 from "../../../images/droneWarfare/drone-figures/fig2.png";
@@ -14,13 +13,11 @@ import fig4 from "../../../images/droneWarfare/drone-figures/fig4.png";
 import poster from "../../../images/droneWarfare/Hero/drone-full.jpg";
 import posterMin from "../../../images/droneWarfare/Hero/drone-full-min.jpg";
 
-// import Image3 from "../../Utilities/Image3";
-// import Image2 from "../../Utilities/Image2";
-import ReactImageAppear from "react-image-appear";
 
-import FloatingBtn from "../../Utilities/FloatingBtn";
-
-
+AOS.init({
+  offset: 400,
+  duration: 1000
+});
 
 
 const DroneWarsArticle = () => {
@@ -31,490 +28,40 @@ const DroneWarsArticle = () => {
   const scrollTo = () => {
     scroll.scrollTo(0);
   };
-
-
-  // States
-  const [ShowcaseHeight, setShowcaseHeight] = useState({
-    showcaseHeight: "92vh"
-  });
-  const [ShortcutBtnsToggle, setToggleState] = useState({
-    shortcutsClosed: "block",
-    shortcutsOpen: "none"
-  }); 
-  const [ShortcutBtns, setShortcutState] = useState({
-    position: "static",
-    shortcutBtnsDisplay: "flex",
-    shortcutBtnsMinDisplay: "none"
-  });
-  // const [State, setState] = useState({
-  //   pos: function(){
-  //     const SubButtons = document.querySelector('#sub-btns-marker')
   
-  //     var rect = SubButtons.getBoundingClientRect()
-      
-  //     return rect
-  //   }
-  // })
-
-  // const { pos } = State;
   
-  // Destructuring
-  const {showcaseHeight} = ShowcaseHeight;
-  const { shortcutsClosed, shortcutsOpen } = ShortcutBtnsToggle;
-  const { position, shortcutBtnsDisplay, shortcutBtnsMinDisplay } = ShortcutBtns;
+
+  
 
 
   smoothscroll.polyfill();
 
-  const maxWidth = window.matchMedia("(max-width: 767px)");
-  const minWidth = window.matchMedia("(min-width: 1024px)");
-
-  // window.onresize = () => {
-  //   if (maxWidth.matches) {
-  //     setShowcaseHeight({ showcaseHeight: "92vh"});
-  //   } else {
-  //     setShowcaseHeight({ showcaseHeight: "110vh" });
-  //   }
-
-  //   if (minWidth.matches){
-  //     setShowcaseHeight({ showcaseHeight: "130vh" });
-  //   }   
-  // };
-  
-
-  // window.onload = () => {
-  //   if (maxWidth.matches) {
-  //     setShowcaseHeight({ showcaseHeight: "92vh"});
-  //   } else {
-  //     setShowcaseHeight({ showcaseHeight: "130vh" });
-  //   }
-
-  //   if (minWidth.matches){
-  //     setShowcaseHeight({ showcaseHeight: "150vh" });
-  //   }
-  // };
-
-  // const scrollEvent = e => {
-  //   // console.log("scroll");
-  //   e.preventDefault();
-    
-  //   setShortcutState({
-  //     position: "static",
-  //     shortcutBtnsDisplay: "none",
-  //     shortcutBtnsMinDisplay: "flex"
-  //   });
-    
-  //   setToggleState({
-  //     shortcutsClosed: "block",
-  //     shortcutsOpen: "none"
-  //   }); 
-    
-  //   const SubButtons = document.querySelector('#sub-btns-marker');
-
-  //   const Div = document.querySelector('#DroneWars');
-
-  //   Div.addEventListener("scroll", scrollEvent);
-    
-  //   var rect = SubButtons.getBoundingClientRect();
-
-  //   if(
-  //           rect.top <= 48 && position === "static"
-  //           //  &&
-  //           // rect.left >= 0 &&
-  //           // rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-  //           // rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  //       ){
-  //         setShortcutState({
-  //           position: "fixed", 
-  //           shortcutBtnsDisplay: "none",
-  //           shortcutBtnsMinDisplay: "flex",
-  //           })
-  //       }
-        
-  //       if (rect.top > 48) {
-  //         setShortcutState({
-  //           position: "static",
-  //           shortcutBtnsDisplay: "flex",
-  //           shortcutBtnsMinDisplay: "none",
-  //       })
-  //       }
-
-  //   window.removeEventListener('scroll', scrollEvent);
-  // }
-
-  
-  // useEffect(()=>{
-
-  //     // const scroll = () => {
-  //     //   const SubButtons = document.querySelector('#sub-btns-marker');
-  
-        
-  //     //   SubButtons.addEventListener("scroll", scrollEvent);
-  //     // }
-
-  //     window.addEventListener('scroll', scrollEvent);
-
-
-
-  //   //   if(
-  //   //       rect.top <= 48 && position === "static"
-  //   //       //  &&
-  //   //       // rect.left >= 0 &&
-  //   //       // rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-  //   //       // rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  //   //   ){
-  //   //     setShortcutState({
-  //   //       position: "fixed", 
-  //   //       shortcutBtnsDisplay: "none",
-  //   //       shortcutBtnsMinDisplay: "flex",
-  //   //       })
-  //   //   }
-    
-  //   //   if (rect.top > 48) {
-  //   //     setShortcutState({
-  //   //       position: "static",
-  //   //       shortcutBtnsDisplay: "flex",
-  //   //       shortcutBtnsMinDisplay: "none",
-  //   //     })
-  //   //   }
-
-  //   // window.removeEventListener('scroll', scrollEvent);
-
-
-  // },[]);
 
   const toggleShortcuts = () => {
     const FloatingSubBtnMax = document.getElementById("floating-subtitle-btns-max")
 
     if (FloatingSubBtnMax.style.display === "flex"){
-      // setShortcutState({
-      //   position: "fixed",
-      //   shortcutBtnsDisplay: "flex",
-      //   shortcutBtnsMinDisplay: "flex",
-      // });
-
-      // setToggleState({
-      //   shortcutsClosed: "none",
-      //   shortcutsOpen: "block"
-      // });
       FloatingSubBtnMax.style.display = "none"
 
 
     }else{
-      // setShortcutState({
-      //   shortcutBtnsDisplay: "none",
-      //   shortcutBtnsMinDisplay: "flex",
-      // });
-
-      // setToggleState({
-      //   shortcutsClosed: "block",
-      //   shortcutsOpen: "none"
-      // });
-
       FloatingSubBtnMax.style.display = "flex"
-
     }
   }
 
   const closeShortcutMenu = () => {
-    if (shortcutBtnsDisplay === "flex"){
-      setShortcutState({
-        position: "fixed",
-        shortcutBtnsDisplay: "none",
-        shortcutBtnsMinDisplay: "flex",
-        showcaseHeight
-      })
+    const FloatingSubBtnMax = document.getElementById("floating-subtitle-btns-max")
+    if (FloatingSubBtnMax.style.display === "flex"){
+      FloatingSubBtnMax.style.display = "none"
     }
   }
-
-  const Div = styled.div`
-    border: solid 2px #000;
-    border-top: none;
-    border-bottom: none;
-
-    .showcaseContainer{
-      height: 110vh;
-      width: auto;
-
-      .image-container{
-        background: #000;
-        width: auto;
-        height: 100%;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-
-        img{
-          height: 100%;
-        }
-      }
-    }
-
-    #subtitle-btns{
-      background: #000;
-      width: 100%;
-
-      #subtitle-btns-min{
-        display: ${shortcutBtnsMinDisplay};
-        position: fixed;
-        top: 3rem;
-        height: 1rem;
-        justify-content: space-around;
-        text-align: center;
-        padding: 0;
-        margin: 0;
-        background: #000;
-        width: 100%;
-        
-        #button{
-          width: 100%;
-          height: 100%;
-          
-          :hover{
-            cursor: auto;
-          }
-
-          .shortcuts-open, .shortcuts-closed{
-            background: #fff;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.4s ease;
-            
-
-            /* Arrow lines */
-            :before,
-            :after {
-              content: "";
-              position: absolute;
-              z-index: 1;
-              top: 0.2rem;
-              width: 1.9px;
-              height: 0.7rem;
-              background: inherit;
-            }
-          }
-
-          .shortcuts-open{
-            display: ${shortcutsOpen};
-
-            :before {
-              transform: rotate(45deg) translate(-3px, 2px);
-            }
-
-            :after {
-              transform: rotate(-45deg) translate(3px, 2px);
-            }
-          }
-
-          .shortcuts-closed{
-            display: ${shortcutsClosed};
-
-            :before {
-              transform: rotate(45deg) translate(6px, 1px);
-              top: -0.2rem;
-
-            }
-
-            :after {
-              transform: rotate(-45deg) translate(-6px, 1px);
-              top: -0.2rem;
-
-            }
-          }
-        }
-      }
-      
-      #subtitle-btns-max{
-        display: ${shortcutBtnsDisplay};
-        padding: 0.8rem 2rem;
-        justify-content: space-around;
-        position: ${position};
-        top: 4rem;
-        background: #000;
-        width: 100%;
-
-        a{
-          color: #fff;
-          line-height: 1.5;
-          :hover{
-            // color: #ffd700;
-          }
-        }
-      }
-    }
-
-    .drone-article{
-      padding: 3rem 10rem;
-      .date{
-        display: inline-block;
-        margin-bottom: 2.5rem;
-        div{
-          border-bottom: solid 1.5px #000;
-          
-          :last-child{
-            border-bottom: none;
-          }
-        }
-      }
-
-      .drone-title{
-        .section-title{
-          font-size: 4rem;
-          margin:0;
-          line-height: 1.5;
-          margin-bottom: 2rem;
-        }
-
-        .section-title-sub{
-          font-size: 2rem;
-          margin: 0;
-          padding-bottom: 2.4rem;
-        }
-
-      }
-
-      .drone-article-body{
-        padding: 1rem 5.5rem;
-
-        .drone-article-text{
-          font-size: 1.5rem;
-
-          #article-advice{
-            color: #bbb;
-            font-style: italic;
-          }
-
-          .heading{
-            border-bottom: 2px solid #000;
-            margin-top: 8rem;
-            margin-bottom: 1.3rem;
-          }
-
-          div{
-            p{
-              margin: 1rem 0;
-              .italic{
-                font-style: italic
-              }
-            }
-          }
-
-          .figures{
-            margin: 5rem 0;
-            img{
-              width: 100%;
-              height: 100%;
-            }
-
-            span{
-              font-size: 1rem;
-            }
-          }
-        }
-
-      }
-    }
-
-    @media (max-width: 767px){
-      .showcaseContainer{
-        height: 92vh;
-      }
-      #subtitle-btns{
-        overflow: hidden;
-        div{
-          flex-direction: column;
-          align-items: center;
-
-          a{
-            margin: 0.5rem;
-            cursor: pointer;
-          }
-        }
-      }
-
-      .drone-article{
-        padding: 3rem 3rem;
-        .date{
-          margin-bottom: 1.5rem;
-        }
-  
-        .drone-title{
-          .section-title{
-            font-size: 2rem;
-            padding-bottom: .8rem;
-          }
-  
-          .section-title-sub{
-            font-size: 1.3rem;
-            padding-bottom: 1rem;
-          }
-  
-        }
-  
-        .drone-article-body{
-          padding: 1rem 0;
-
-          .drone-article-text{
-            font-size: 1.15rem;
-
-            #article-advice{
-              padding-bottom: 1rem;
-              font-size: 1.15rem;
-            }
-  
-            .heading{
-
-            }
-
-            div{
-              p{
-                margin: 2rem 0;
-              }
-            }
-  
-            .figures{
-              img{
-                
-              }
-  
-              span{
-                font-size: 0.8rem;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    @media (min-width: 1024px){
-      .showcaseContainer{
-        height: auto;
-        width: 100%;
-      }
-  `;
-
   
 
   return (
     <Fragment>
     <div id="DroneWars">
-      {/* <ScrollBtn onClick={scrollTo}>T</ScrollBtn> */}
-      {/* {FloatingBtn()} */}
       <div className="showcaseContainer">
         <div className="image-container">
-          {/* {Image3(poster, posterMin, showcaseHeight, "top")} */}
-          {/* <ProgressiveImage image={poster} placeholder={posterMin} height={showcaseHeight} position="top" /> */}
-          {/* <Image2
-            alt={"Drone Wars"}
-            overlaySrc={posterMin}
-            src={poster}
-            /> */}
-            {/* <ReactImageAppear 
-                  src={poster}
-                  placeholder={posterMin}
-                  showLoader={false}
-                  animation="blurIn"
-                /> */}
             <img src={poster} alt='Drone Wars' className='loading' />
         </div>
       </div>
@@ -547,7 +94,7 @@ const DroneWarsArticle = () => {
               conclusions based on both the investigation below and the original
               datasets.
             </div>
-            <div id="floating-items-container">
+            <div id="floating-items-container" data-aos="fade-in">
               <section id="floating-subtitle-btns">
                 <div id="floating-subtitle-btns-min"> 
                   <button id="button" onClick={toggleShortcuts} >

@@ -64,7 +64,7 @@ const Story1 = () => {
           <div className='content-container'>
             <div className='heading-container'>
               <span className='title'>Drone Wars</span>
-              <span className='badge'>Article</span>
+              <span className='badge article-badge'>Article</span>
             </div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <Link to='/dronewars/article'>Read Article</Link>
@@ -86,7 +86,7 @@ const Story1 = () => {
           <div className='content-container'>
             <div className='heading-container'>
               <span className='title'>Drone Wars</span>
-              <span className='badge'>Data</span>
+              <span className='badge data-badge'>Data</span>
             </div>
             <p>
               Interactive panels with visualisations make it easy to browse

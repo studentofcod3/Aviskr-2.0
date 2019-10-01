@@ -31,7 +31,7 @@ const SlideShow = () => {
               <div className='content-container'>
                 <div className='container'>
                   <h3>Drone Warfare Highlights</h3>
-                  <span className='badge'>Article</span>
+                  <span className='badge article-badge'>Article</span>
                 </div>
                 <p>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -56,7 +56,7 @@ const SlideShow = () => {
               <div className='content-container'>
                 <div className='container'>
                   <h3>Drone Warfare Highlights</h3>
-                  <div className='badge'>Data</div>
+                  <div className='badge data-badge'>Data</div>
                 </div>
                 <p>
                   Interactive panels with visualisations make it easy to browse
