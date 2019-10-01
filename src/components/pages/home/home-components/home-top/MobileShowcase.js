@@ -7,7 +7,6 @@ import slide1min from "../../../../../images/droneWarfare/Hero/hero-phone-min.jp
 import slide2 from "../../../../../images/story1/dashboard.JPG";
 import slide2min from "../../../../../images/story1/dashboard-min.JPG";
 
-// import Image3 from "../../../../Utilities/Image3";
 import ReactImageAppear from "react-image-appear";
 import "../../../../../bootstrap/bootstrap-4.3.1-dist/css/bootstrap.css";
 
