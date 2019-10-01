@@ -44,7 +44,7 @@ const Story1 = () => {
   return (
     <div id='homeStories'>
       <div id='StoriesContainer'>
-        <div id='Story1Container'>
+        <div id='Story1Container1'>
           <div className='image-container'>
             {/* {Image3(Hero, HeroMin, imgHeight1, "bottom")} */}
             {/* <Image3
@@ -72,7 +72,7 @@ const Story1 = () => {
         </div>
       </div>
       <div id='StoriesContainer'>
-        <div id='Story2Container'>
+        <div id='Story1Container2'>
           <div className='image-container'>
             {/* <img src={Data} alt='Drone Wars Data' /> */}
             {/* {Image3(Data, DataMin, imgHeight2, "bottom")} */}

@@ -184,29 +184,34 @@ const DroneWarsArticle = () => {
   // },[]);
 
   const toggleShortcuts = () => {
-    if (shortcutBtnsDisplay === "none"){
-      setShortcutState({
-        position: "fixed",
-        shortcutBtnsDisplay: "flex",
-        shortcutBtnsMinDisplay: "flex",
-      });
+    const FloatingSubBtnMax = document.getElementById("floating-subtitle-btns-max")
 
-      setToggleState({
-        shortcutsClosed: "none",
-        shortcutsOpen: "block"
-      });
+    if (FloatingSubBtnMax.style.display === "flex"){
+      // setShortcutState({
+      //   position: "fixed",
+      //   shortcutBtnsDisplay: "flex",
+      //   shortcutBtnsMinDisplay: "flex",
+      // });
+
+      // setToggleState({
+      //   shortcutsClosed: "none",
+      //   shortcutsOpen: "block"
+      // });
+      FloatingSubBtnMax.style.display = "none"
 
 
     }else{
-      setShortcutState({
-        shortcutBtnsDisplay: "none",
-        shortcutBtnsMinDisplay: "flex",
-      });
+      // setShortcutState({
+      //   shortcutBtnsDisplay: "none",
+      //   shortcutBtnsMinDisplay: "flex",
+      // });
 
-      setToggleState({
-        shortcutsClosed: "block",
-        shortcutsOpen: "none"
-      });
+      // setToggleState({
+      //   shortcutsClosed: "block",
+      //   shortcutsOpen: "none"
+      // });
+
+      FloatingSubBtnMax.style.display = "flex"
 
     }
   }
@@ -513,33 +518,7 @@ const DroneWarsArticle = () => {
             <img src={poster} alt='Drone Wars' className='loading' />
         </div>
       </div>
-
-      <section id="subtitle-btns">
-        {/* <div id="subtitle-btns-min"> 
-          <button id="button" onClick={toggleShortcuts} >
-            <div className="shortcuts-open">
-            </div>
-            <div className="shortcuts-closed">
-            </div>
-          </button>
-        </div> */}
-        <div id="subtitle-btns-max">
-          <SmoothLink to="history-of-drones" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>History of Drones</SmoothLink>
-          <SmoothLink to="military-capacity" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Military Capacity</SmoothLink>
-          <SmoothLink to="us-drone-policy" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>U.S. Drone Policy</SmoothLink>
-          <SmoothLink to="legal-ramifications" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Legal Ramifications</SmoothLink>
-          <SmoothLink to="obama" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Obama And Trump</SmoothLink>
-          <SmoothLink to="conclusion" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Conclusion</SmoothLink>
-        </div>
-      </section>
       <article className="container drone-article">
-        <div id="floating-items-container">
-          <div id='floatingBtn'>
-            <button className='button' onClick={scrollTo}> 
-            <div></div>
-            </button>
-          </div>
-        </div>
         <div className="date">
           <div>
             16
@@ -557,18 +536,40 @@ const DroneWarsArticle = () => {
             Analysis of Presidential Policy Guideline
           </p>
           <p className="author">
-            Written by Nathan Alli, Edited by Jubair Ahmed
+            Written by Nathan Alli; Edited by Jubair Ahmed
           </p>
         </div>
         <div className="container drone-article-body">
           <div className="drone-article-text">
-            <div>
-              <div id="article-advice">
-                For full, interactive panels of our data, refer to the associated <Link to="/dronewars/data">dashboard</Link>. The following piece is an objective
-                analysis from said data. We strongly advise you to form your
-                conclusions based on both the investigation below and the original
-                datasets.
+            <div id="article-advice">
+              For full, interactive panels of our data, refer to the associated <Link to="/dronewars/data">dashboard</Link>. The following piece is an objective
+              analysis from said data. We strongly advise you to form your
+              conclusions based on both the investigation below and the original
+              datasets.
+            </div>
+            <div id="floating-items-container">
+              <section id="floating-subtitle-btns">
+                <div id="floating-subtitle-btns-min"> 
+                  <button id="button" onClick={toggleShortcuts} >
+                    <i className="fas fa-sort"></i>
+                  </button>
+                </div>
+                <div id="floating-subtitle-btns-max">
+                  <SmoothLink to="history-of-drones" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>History of Drones</SmoothLink>
+                  <SmoothLink to="military-capacity" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Military Capacity</SmoothLink>
+                  <SmoothLink to="us-drone-policy" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>U.S. Drone Policy</SmoothLink>
+                  <SmoothLink to="legal-ramifications" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Legal Ramifications</SmoothLink>
+                  <SmoothLink to="obama" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Obama And Trump</SmoothLink>
+                  <SmoothLink to="conclusion" smooth={true} offset={-100} duration={500} className="shortcut-btn" onClick={closeShortcutMenu}>Conclusion</SmoothLink>
+                </div>
+              </section>
+              <div id='floatingBtn'>
+                <button className='button' onClick={scrollTo}>
+                  <i className="fas fa-arrow-up"></i>
+                </button>
               </div>
+            </div>
+            <div>
               <h3 id="introduction">Introduction</h3>
               <div>
                 <p>

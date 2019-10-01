@@ -7,6 +7,7 @@ import Home from "./components/pages/home/Home";
 import Contact3 from "./components/pages/Contact3";
 import DroneWarsArticle from "./components/pages/drone-wars/DroneWarsArticle";
 import DroneWarsData from "./components/pages/drone-wars/DroneWarsData";
+import ChinaArticle from "./components/pages/china/ChinaArticle";
 
 import "./App.scss";
 import Footer from "./components/Footer";
@@ -22,6 +23,7 @@ const App = () => {
           <Route exact path='/contact' component={Contact3} />
           <Route exact path='/dronewars/article' component={DroneWarsArticle} />
           <Route exact path='/dronewars/data' component={DroneWarsData} />
+          <Route exact path='/china/article' component={ChinaArticle} />
         </Switch>
         <Footer />
       </div>

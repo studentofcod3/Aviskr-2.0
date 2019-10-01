@@ -12,7 +12,6 @@ import ReactImageAppear from "react-image-appear";
 import "../../../../../bootstrap/bootstrap-4.3.1-dist/css/bootstrap.css";
 
 import "../../../../../App.scss";
-import styled from "styled-components";
 
 const SlideShow = () => {
   return (
@@ -22,7 +21,6 @@ const SlideShow = () => {
           <Carousel.Item>
             <div id='carousel-item-structure'>
               <div className='image-container'>
-                {/* {Image3(slide1, slide1min, "100%", "center")} */}
                 <ReactImageAppear
                   src={slide1}
                   placeholder={slide1min}
@@ -48,8 +46,6 @@ const SlideShow = () => {
           <Carousel.Item>
             <div id='carousel-item-structure'>
               <div className='image-container'>
-                {/* <img src={slide2} alt='Second slide' /> */}
-                {/* {Image3(slide2, slide2min, "14rem", "top")} */}
                 <ReactImageAppear
                   src={slide2}
                   placeholder={slide2min}
